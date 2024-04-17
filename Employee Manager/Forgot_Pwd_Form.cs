@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace Employee_Manager
 {
-    public partial class Signup_Form : Form
+    public partial class Forgot_Pwd_Form : Form
     {
-        public Signup_Form()
+        public Forgot_Pwd_Form()
         {
             InitializeComponent();
         }
 
-        private void signupBtn_Click(object sender, EventArgs e)
+        private void confirmBtn_Click(object sender, EventArgs e)
         {
             this.Close();
         }

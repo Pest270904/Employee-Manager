@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Employee_Manager
+namespace Employee_Manager.Child_Forms
 {
-    public partial class Signup_Form : Form
+    public partial class Profile_ChildForm : Form
     {
-        public Signup_Form()
+        public Profile_ChildForm()
         {
             InitializeComponent();
-        }
-
-        private void signupBtn_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

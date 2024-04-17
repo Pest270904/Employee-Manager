@@ -64,11 +64,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Child_Forms\ListEmployee_ChildForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Child_Forms\ListEmployee_ChildForm.Designer.cs">
+      <DependentUpon>ListEmployee_ChildForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Child_Forms\ListRoom_ChildForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Child_Forms\ListRoom_ChildForm.Designer.cs">
+      <DependentUpon>ListRoom_ChildForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Logout_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Logout_Form.Designer.cs">
+      <DependentUpon>Logout_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Child_Forms\Profile_ChildForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Child_Forms\Profile_ChildForm.Designer.cs">
+      <DependentUpon>Profile_ChildForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forgot_Pwd_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forgot_Pwd_Form.Designer.cs">
+      <DependentUpon>Forgot_Pwd_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login_Form.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login_Form.Designer.cs">
       <DependentUpon>Login_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main_Form.Designer.cs">
+      <DependentUpon>Main_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -78,8 +114,26 @@
     <Compile Include="Signup_Form.Designer.cs">
       <DependentUpon>Signup_Form.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Child_Forms\ListEmployee_ChildForm.resx">
+      <DependentUpon>ListEmployee_ChildForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Child_Forms\ListRoom_ChildForm.resx">
+      <DependentUpon>ListRoom_ChildForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logout_Form.resx">
+      <DependentUpon>Logout_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Child_Forms\Profile_ChildForm.resx">
+      <DependentUpon>Profile_ChildForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forgot_Pwd_Form.resx">
+      <DependentUpon>Forgot_Pwd_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login_Form.resx">
       <DependentUpon>Login_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main_Form.resx">
+      <DependentUpon>Main_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -89,6 +143,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Signup_Form.resx">
       <DependentUpon>Signup_Form.cs</DependentUpon>
@@ -106,6 +161,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-profile1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\questionmask.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
