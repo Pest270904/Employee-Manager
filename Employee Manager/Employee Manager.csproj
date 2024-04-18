@@ -76,6 +76,7 @@
     <Compile Include="Child_Forms\ListRoom_ChildForm.Designer.cs">
       <DependentUpon>ListRoom_ChildForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Data.cs" />
     <Compile Include="Logout_Form.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -38,6 +38,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.emailTB = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblConnectionStatusTest = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
@@ -82,6 +83,7 @@
             this.usernameTB.SelectedText = "";
             this.usernameTB.Size = new System.Drawing.Size(336, 46);
             this.usernameTB.TabIndex = 22;
+            this.usernameTB.TextChanged += new System.EventHandler(this.usernameTB_TextChanged);
             // 
             // signupBtn
             // 
@@ -98,7 +100,7 @@
             this.signupBtn.Size = new System.Drawing.Size(336, 41);
             this.signupBtn.TabIndex = 20;
             this.signupBtn.Text = "Sign up";
-            this.signupBtn.Click += new System.EventHandler(this.signupBtn_Click);
+            this.signupBtn.Click += new System.EventHandler(this.signupBtn_ClickAsync);
             // 
             // nameTB
             // 
@@ -216,12 +218,22 @@
             this.guna2Panel1.Size = new System.Drawing.Size(485, 586);
             this.guna2Panel1.TabIndex = 32;
             // 
+            // lblConnectionStatusTest
+            // 
+            this.lblConnectionStatusTest.AutoSize = true;
+            this.lblConnectionStatusTest.Location = new System.Drawing.Point(691, 47);
+            this.lblConnectionStatusTest.Name = "lblConnectionStatusTest";
+            this.lblConnectionStatusTest.Size = new System.Drawing.Size(92, 16);
+            this.lblConnectionStatusTest.TabIndex = 33;
+            this.lblConnectionStatusTest.Text = "connect status";
+            // 
             // Signup_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.ClientSize = new System.Drawing.Size(824, 632);
+            this.Controls.Add(this.lblConnectionStatusTest);
             this.Controls.Add(this.emailTB);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.password2TB);
@@ -235,6 +247,7 @@
             this.Name = "Signup_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Signup";
+            this.Load += new System.EventHandler(this.Signup_Form_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,5 +264,6 @@
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2TextBox emailTB;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private System.Windows.Forms.Label lblConnectionStatusTest;
     }
 }

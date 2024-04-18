@@ -126,6 +126,7 @@
             this.usernameTB.SelectedText = "";
             this.usernameTB.Size = new System.Drawing.Size(336, 46);
             this.usernameTB.TabIndex = 34;
+            this.usernameTB.TextChanged += new System.EventHandler(this.usernameTB_TextChanged);
             // 
             // confirmBtn
             // 

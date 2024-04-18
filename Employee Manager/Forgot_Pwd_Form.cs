@@ -21,5 +21,10 @@ namespace Employee_Manager
         {
             this.Close();
         }
+
+        private void usernameTB_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
