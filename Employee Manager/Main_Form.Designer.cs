@@ -38,7 +38,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.label7 = new System.Windows.Forms.Label();
+            this.username_main = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelDesktopPane = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -194,24 +194,24 @@
             this.guna2ImageButton1.Size = new System.Drawing.Size(79, 70);
             this.guna2ImageButton1.TabIndex = 48;
             // 
-            // label7
+            // username_main
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(22)))), ((int)(((byte)(156)))));
-            this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(689, 49);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(112, 27);
-            this.label7.TabIndex = 49;
-            this.label7.Text = "username";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.username_main.AutoSize = true;
+            this.username_main.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(22)))), ((int)(((byte)(156)))));
+            this.username_main.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold);
+            this.username_main.ForeColor = System.Drawing.Color.White;
+            this.username_main.Location = new System.Drawing.Point(689, 49);
+            this.username_main.Name = "username_main";
+            this.username_main.Size = new System.Drawing.Size(112, 27);
+            this.username_main.TabIndex = 49;
+            this.username_main.Text = "username";
+            this.username_main.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(22)))), ((int)(((byte)(156)))));
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.username_main);
             this.panel2.Controls.Add(this.guna2ImageButton1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(235, 0);
@@ -258,7 +258,7 @@
         private Guna.UI2.WinForms.Guna2Button roomBtn;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label username_main;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panelDesktopPane;
     }

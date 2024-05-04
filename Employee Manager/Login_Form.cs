@@ -23,8 +23,8 @@ namespace Employee_Manager
         //Connect tới firebase
         IFirebaseConfig config = new FirebaseConfig
         {
-            AuthSecret = "i1jWD1zLnzcJlgIHpv9RzPlOARWduP997qTV8rIM",
-            BasePath = "https://employee-management-f8bdf-default-rtdb.firebaseio.com/"
+            AuthSecret = "Za2NHhoGe0Af8NERiHM1lRVyonuESkRsuypN1WS2",
+            BasePath = "https://test-59665-default-rtdb.firebaseio.com/"
         };
         //Tạo client
         IFirebaseClient client;
@@ -64,7 +64,7 @@ namespace Employee_Manager
                 //Nếu tồn tại thì đưa về home
                 if (found)
                 {
-                    Main_Form form = new Main_Form();
+                    Main_Form form = new Main_Form(usernameTB.Text);
                     this.Hide();
                     form.ShowDialog();
                     this.Show();
@@ -83,7 +83,7 @@ namespace Employee_Manager
             Forgot_Pwd_Form form = new Forgot_Pwd_Form();
             this.Hide();
             form.ShowDialog();
-            this.Show();
+            this.Close();
         }
 
         private void signup_Click(object sender, EventArgs e)
@@ -91,13 +91,17 @@ namespace Employee_Manager
             Signup_Form form = new Signup_Form();
             this.Hide();
             form.ShowDialog();
-            this.Show();
+            this.Close();
         }
 
         private void Login_Form_Load(object sender, EventArgs e)
         {
             client = new FireSharp.FirebaseClient(config);
+        }
 
+        private void Login_Form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

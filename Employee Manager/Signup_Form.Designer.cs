@@ -38,14 +38,18 @@
             this.label3 = new System.Windows.Forms.Label();
             this.emailTB = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblConnectionStatusTest = new System.Windows.Forms.Label();
+            this.username_notify = new System.Windows.Forms.Label();
+            this.email_notify = new System.Windows.Forms.Label();
+            this.pwd_notify = new System.Windows.Forms.Label();
+            this.pwd2_notify = new System.Windows.Forms.Label();
+            this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label2.Location = new System.Drawing.Point(231, 501);
+            this.label2.Location = new System.Drawing.Point(231, 563);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(336, 2);
             this.label2.TabIndex = 26;
@@ -75,7 +79,7 @@
             this.usernameTB.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.usernameTB.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.usernameTB.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.usernameTB.Location = new System.Drawing.Point(231, 147);
+            this.usernameTB.Location = new System.Drawing.Point(66, 116);
             this.usernameTB.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.usernameTB.Name = "usernameTB";
             this.usernameTB.PasswordChar = '\0';
@@ -95,7 +99,7 @@
             this.signupBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(77)))), ((int)(((byte)(17)))));
             this.signupBtn.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.signupBtn.ForeColor = System.Drawing.Color.White;
-            this.signupBtn.Location = new System.Drawing.Point(231, 529);
+            this.signupBtn.Location = new System.Drawing.Point(69, 549);
             this.signupBtn.Name = "signupBtn";
             this.signupBtn.Size = new System.Drawing.Size(336, 41);
             this.signupBtn.TabIndex = 20;
@@ -116,7 +120,7 @@
             this.nameTB.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.nameTB.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.nameTB.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.nameTB.Location = new System.Drawing.Point(231, 285);
+            this.nameTB.Location = new System.Drawing.Point(66, 268);
             this.nameTB.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.nameTB.Name = "nameTB";
             this.nameTB.PasswordChar = '\0';
@@ -139,7 +143,7 @@
             this.passwordTB.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.passwordTB.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.passwordTB.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.passwordTB.Location = new System.Drawing.Point(231, 356);
+            this.passwordTB.Location = new System.Drawing.Point(66, 345);
             this.passwordTB.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.passwordTB.Name = "passwordTB";
             this.passwordTB.PasswordChar = '\0';
@@ -147,6 +151,7 @@
             this.passwordTB.SelectedText = "";
             this.passwordTB.Size = new System.Drawing.Size(336, 46);
             this.passwordTB.TabIndex = 28;
+            this.passwordTB.TextChanged += new System.EventHandler(this.passwordTB_TextChanged);
             // 
             // password2TB
             // 
@@ -162,7 +167,7 @@
             this.password2TB.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.password2TB.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.password2TB.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.password2TB.Location = new System.Drawing.Point(231, 426);
+            this.password2TB.Location = new System.Drawing.Point(66, 451);
             this.password2TB.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.password2TB.Name = "password2TB";
             this.password2TB.PasswordChar = '\0';
@@ -170,6 +175,7 @@
             this.password2TB.SelectedText = "";
             this.password2TB.Size = new System.Drawing.Size(336, 46);
             this.password2TB.TabIndex = 29;
+            this.password2TB.TextChanged += new System.EventHandler(this.password2TB_TextChanged);
             // 
             // label3
             // 
@@ -196,7 +202,7 @@
             this.emailTB.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.emailTB.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.emailTB.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.emailTB.Location = new System.Drawing.Point(231, 213);
+            this.emailTB.Location = new System.Drawing.Point(66, 191);
             this.emailTB.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.emailTB.Name = "emailTB";
             this.emailTB.PasswordChar = '\0';
@@ -204,6 +210,7 @@
             this.emailTB.SelectedText = "";
             this.emailTB.Size = new System.Drawing.Size(336, 46);
             this.emailTB.TabIndex = 31;
+            this.emailTB.TextChanged += new System.EventHandler(this.emailTB_TextChanged);
             // 
             // guna2Panel1
             // 
@@ -211,43 +218,88 @@
             this.guna2Panel1.BorderColor = System.Drawing.Color.Black;
             this.guna2Panel1.BorderRadius = 20;
             this.guna2Panel1.BorderThickness = 1;
+            this.guna2Panel1.Controls.Add(this.pwd2_notify);
+            this.guna2Panel1.Controls.Add(this.pwd_notify);
+            this.guna2Panel1.Controls.Add(this.email_notify);
+            this.guna2Panel1.Controls.Add(this.username_notify);
+            this.guna2Panel1.Controls.Add(this.emailTB);
+            this.guna2Panel1.Controls.Add(this.signupBtn);
+            this.guna2Panel1.Controls.Add(this.password2TB);
+            this.guna2Panel1.Controls.Add(this.nameTB);
+            this.guna2Panel1.Controls.Add(this.passwordTB);
+            this.guna2Panel1.Controls.Add(this.usernameTB);
             this.guna2Panel1.CustomBorderColor = System.Drawing.Color.Black;
             this.guna2Panel1.FillColor = System.Drawing.Color.White;
-            this.guna2Panel1.Location = new System.Drawing.Point(162, 22);
+            this.guna2Panel1.Location = new System.Drawing.Point(165, 34);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(485, 586);
+            this.guna2Panel1.Size = new System.Drawing.Size(488, 648);
             this.guna2Panel1.TabIndex = 32;
             // 
-            // lblConnectionStatusTest
+            // username_notify
             // 
-            this.lblConnectionStatusTest.AutoSize = true;
-            this.lblConnectionStatusTest.Location = new System.Drawing.Point(691, 47);
-            this.lblConnectionStatusTest.Name = "lblConnectionStatusTest";
-            this.lblConnectionStatusTest.Size = new System.Drawing.Size(92, 16);
-            this.lblConnectionStatusTest.TabIndex = 33;
-            this.lblConnectionStatusTest.Text = "connect status";
+            this.username_notify.AutoSize = true;
+            this.username_notify.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.username_notify.ForeColor = System.Drawing.Color.IndianRed;
+            this.username_notify.Location = new System.Drawing.Point(51, 167);
+            this.username_notify.Name = "username_notify";
+            this.username_notify.Size = new System.Drawing.Size(379, 16);
+            this.username_notify.TabIndex = 32;
+            this.username_notify.Text = "! Your username must have has at least 8-20 character";
+            this.username_notify.Visible = false;
+            // 
+            // email_notify
+            // 
+            this.email_notify.AutoSize = true;
+            this.email_notify.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.email_notify.ForeColor = System.Drawing.Color.IndianRed;
+            this.email_notify.Location = new System.Drawing.Point(104, 247);
+            this.email_notify.Name = "email_notify";
+            this.email_notify.Size = new System.Drawing.Size(250, 16);
+            this.email_notify.TabIndex = 33;
+            this.email_notify.Text = "! Your email should be a legit email";
+            this.email_notify.Visible = false;
+            // 
+            // pwd_notify
+            // 
+            this.pwd_notify.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_notify.ForeColor = System.Drawing.Color.IndianRed;
+            this.pwd_notify.Location = new System.Drawing.Point(35, 406);
+            this.pwd_notify.Name = "pwd_notify";
+            this.pwd_notify.Size = new System.Drawing.Size(403, 32);
+            this.pwd_notify.TabIndex = 33;
+            this.pwd_notify.Text = "! Your password should have at least 8 characters, \r\ncontain at least 1 uppercase" +
+    " and 1 number";
+            this.pwd_notify.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.pwd_notify.Visible = false;
+            // 
+            // pwd2_notify
+            // 
+            this.pwd2_notify.AutoSize = true;
+            this.pwd2_notify.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd2_notify.ForeColor = System.Drawing.Color.IndianRed;
+            this.pwd2_notify.Location = new System.Drawing.Point(40, 503);
+            this.pwd2_notify.Name = "pwd2_notify";
+            this.pwd2_notify.Size = new System.Drawing.Size(403, 16);
+            this.pwd2_notify.TabIndex = 34;
+            this.pwd2_notify.Text = "! Your confirmation code should match your first password";
+            this.pwd2_notify.Visible = false;
             // 
             // Signup_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.ClientSize = new System.Drawing.Size(824, 632);
-            this.Controls.Add(this.lblConnectionStatusTest);
-            this.Controls.Add(this.emailTB);
+            this.ClientSize = new System.Drawing.Size(829, 730);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.password2TB);
-            this.Controls.Add(this.passwordTB);
-            this.Controls.Add(this.nameTB);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.usernameTB);
-            this.Controls.Add(this.signupBtn);
             this.Controls.Add(this.guna2Panel1);
             this.Name = "Signup_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Signup";
             this.Load += new System.EventHandler(this.Signup_Form_Load);
+            this.guna2Panel1.ResumeLayout(false);
+            this.guna2Panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -264,6 +316,9 @@
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2TextBox emailTB;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private System.Windows.Forms.Label lblConnectionStatusTest;
+        private System.Windows.Forms.Label pwd_notify;
+        private System.Windows.Forms.Label email_notify;
+        private System.Windows.Forms.Label username_notify;
+        private System.Windows.Forms.Label pwd2_notify;
     }
 }

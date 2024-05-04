@@ -17,9 +17,13 @@ namespace Employee_Manager
         private Guna2Button currentButton;
         private Form activeForm;
 
-        public Main_Form()
+        private string username;
+
+        public Main_Form(string username)
         {
             InitializeComponent();
+            this.username = username;
+            username_main.Text = username;
         }
 
         private void roomBtn_Click(object sender, EventArgs e)
@@ -39,9 +43,9 @@ namespace Employee_Manager
         private void logoutBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Logout_Form frm = new Logout_Form();
+            Logout_Form frm = new Logout_Form(username);
             frm.ShowDialog();
-            this.Show();
+            this.Close();
         }
 
         private void OpenChildForm(Form childForm, object btnSender)
