@@ -42,10 +42,9 @@ namespace Employee_Manager
 
         private void logoutBtn_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             Logout_Form frm = new Logout_Form(username);
             frm.ShowDialog();
-            this.Close();
         }
 
         private void OpenChildForm(Form childForm, object btnSender)
@@ -83,7 +82,7 @@ namespace Employee_Manager
 
             foreach (Guna2Button btn in btnArr)
             {
-                    btn.FillColor = Color.FromArgb(5, 77, 17);
+                    btn.FillColor = Color.FromArgb(4, 170, 109);
                     btn.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             }
         }

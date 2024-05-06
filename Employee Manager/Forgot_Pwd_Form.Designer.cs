@@ -34,9 +34,9 @@
             this.confirmBtn = new Guna.UI2.WinForms.Guna2Button();
             this.newPwdTB = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pwd_notify = new System.Windows.Forms.Label();
             this.sendCode_Btn = new Guna.UI2.WinForms.Guna2Button();
             this.codeTB = new Guna.UI2.WinForms.Guna2TextBox();
-            this.pwd_notify = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -114,7 +114,7 @@
             this.newPwdTB.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.newPwdTB.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.newPwdTB.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.newPwdTB.Location = new System.Drawing.Point(61, 334);
+            this.newPwdTB.Location = new System.Drawing.Point(59, 334);
             this.newPwdTB.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.newPwdTB.Name = "newPwdTB";
             this.newPwdTB.PasswordChar = '\0';
@@ -142,6 +142,19 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(476, 555);
             this.guna2Panel1.TabIndex = 43;
+            // 
+            // pwd_notify
+            // 
+            this.pwd_notify.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_notify.ForeColor = System.Drawing.Color.IndianRed;
+            this.pwd_notify.Location = new System.Drawing.Point(27, 385);
+            this.pwd_notify.Name = "pwd_notify";
+            this.pwd_notify.Size = new System.Drawing.Size(403, 32);
+            this.pwd_notify.TabIndex = 45;
+            this.pwd_notify.Text = "! Your password should have at least 8 characters, \r\ncontain at least 1 uppercase" +
+    " and 1 number";
+            this.pwd_notify.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.pwd_notify.Visible = false;
             // 
             // sendCode_Btn
             // 
@@ -182,19 +195,6 @@
             this.codeTB.SelectedText = "";
             this.codeTB.Size = new System.Drawing.Size(336, 46);
             this.codeTB.TabIndex = 43;
-            // 
-            // pwd_notify
-            // 
-            this.pwd_notify.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwd_notify.ForeColor = System.Drawing.Color.IndianRed;
-            this.pwd_notify.Location = new System.Drawing.Point(27, 385);
-            this.pwd_notify.Name = "pwd_notify";
-            this.pwd_notify.Size = new System.Drawing.Size(403, 32);
-            this.pwd_notify.TabIndex = 45;
-            this.pwd_notify.Text = "! Your password should have at least 8 characters, \r\ncontain at least 1 uppercase" +
-    " and 1 number";
-            this.pwd_notify.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.pwd_notify.Visible = false;
             // 
             // Forgot_Pwd_Form
             // 

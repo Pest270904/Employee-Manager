@@ -29,8 +29,6 @@ namespace Employee_Manager
         //Tạo client
         IFirebaseClient client;
 
-
-
         private void loginBtn_Click(object sender, EventArgs e)
         {
             //Check xem có điền username password
@@ -67,7 +65,7 @@ namespace Employee_Manager
                     Main_Form form = new Main_Form(usernameTB.Text);
                     this.Hide();
                     form.ShowDialog();
-                    this.Show();
+                    this.Close();
                 }
                 //Không thì hiện message box cảnh báo
                 else
@@ -83,7 +81,7 @@ namespace Employee_Manager
             Forgot_Pwd_Form form = new Forgot_Pwd_Form();
             this.Hide();
             form.ShowDialog();
-            this.Close();
+            this.Show();
         }
 
         private void signup_Click(object sender, EventArgs e)
@@ -91,7 +89,7 @@ namespace Employee_Manager
             Signup_Form form = new Signup_Form();
             this.Hide();
             form.ShowDialog();
-            this.Close();
+            this.Show();
         }
 
         private void Login_Form_Load(object sender, EventArgs e)
