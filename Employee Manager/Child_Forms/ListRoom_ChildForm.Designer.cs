@@ -34,7 +34,10 @@
             this.deleteBtn = new Guna.UI2.WinForms.Guna2Button();
             this.searchBtn = new Guna.UI2.WinForms.Guna2Button();
             this.searchTB = new Guna.UI2.WinForms.Guna2TextBox();
-            this.listRoom = new System.Windows.Forms.ListView();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -139,21 +142,39 @@
             this.searchTB.Size = new System.Drawing.Size(196, 35);
             this.searchTB.TabIndex = 21;
             // 
-            // listRoom
+            // dataGridView1
             // 
-            this.listRoom.HideSelection = false;
-            this.listRoom.Location = new System.Drawing.Point(63, 125);
-            this.listRoom.Name = "listRoom";
-            this.listRoom.Size = new System.Drawing.Size(827, 365);
-            this.listRoom.TabIndex = 22;
-            this.listRoom.UseCompatibleStateImageBehavior = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.name});
+            this.dataGridView1.Location = new System.Drawing.Point(63, 141);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(827, 357);
+            this.dataGridView1.TabIndex = 22;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "Room Id";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.Width = 125;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "Room Name";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.Width = 125;
             // 
             // ListRoom_ChildForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(955, 529);
-            this.Controls.Add(this.listRoom);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.searchTB);
             this.Controls.Add(this.searchBtn);
             this.Controls.Add(this.deleteBtn);
@@ -162,6 +183,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ListRoom_ChildForm";
             this.Text = "ListRoom_ChildForm";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,6 +197,8 @@
         private Guna.UI2.WinForms.Guna2Button deleteBtn;
         private Guna.UI2.WinForms.Guna2Button searchBtn;
         private Guna.UI2.WinForms.Guna2TextBox searchTB;
-        private System.Windows.Forms.ListView listRoom;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
     }
 }

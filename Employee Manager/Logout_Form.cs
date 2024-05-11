@@ -23,9 +23,10 @@ namespace Employee_Manager.Child_Forms
 
         private void cancelBtn_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            this.Close();
             Main_Form frm = new Main_Form(currentUser);
             frm.ShowDialog();
-            this.Close();
         }
 
         private void okayBtn_Click(object sender, EventArgs e)
