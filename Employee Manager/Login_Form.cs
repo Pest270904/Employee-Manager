@@ -20,14 +20,10 @@ namespace Employee_Manager
             InitializeComponent();
         }
 
-        //Connect tới firebase
-        IFirebaseConfig config = new FirebaseConfig
-        {
-            AuthSecret = "Za2NHhoGe0Af8NERiHM1lRVyonuESkRsuypN1WS2",
-            BasePath = "https://test-59665-default-rtdb.firebaseio.com/"
-        };
-        //Tạo client
-        IFirebaseClient client;
+        // client for firebase - config from FirebaseSetup.cs
+        private IFirebaseClient client;
+
+        private Userdata currentUser = new Userdata();
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
@@ -54,6 +50,9 @@ namespace Employee_Manager
                     //Check nếu username và pass tồn tại
                     if (usernameTB.Text == usernameRes && passwordTB.Text == passwordRes)
                     {
+                        currentUser.username = usernameRes;
+                        currentUser.email = get.Value.email;
+                        currentUser.name = get.Value.name;
                         found = true;
                         break; 
                     }
@@ -62,7 +61,7 @@ namespace Employee_Manager
                 //Nếu tồn tại thì đưa về home
                 if (found)
                 {
-                    Main_Form form = new Main_Form(usernameTB.Text);
+                    Main_Form form = new Main_Form(currentUser);
                     this.Hide();
                     form.ShowDialog();
                     this.Close();
@@ -94,7 +93,7 @@ namespace Employee_Manager
 
         private void Login_Form_Load(object sender, EventArgs e)
         {
-            client = new FireSharp.FirebaseClient(config);
+            client = FirebaseSetup.InitializeFirebase();
         }
 
         private void Login_Form_FormClosing(object sender, FormClosingEventArgs e)

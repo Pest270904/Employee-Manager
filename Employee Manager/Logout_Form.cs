@@ -13,16 +13,17 @@ namespace Employee_Manager.Child_Forms
     public partial class Logout_Form : Form
     {
         private string username;
+        private Userdata currentUser;
 
-        public Logout_Form(string username)
+        public Logout_Form(Userdata user)
         {
             InitializeComponent();
-            this.username = username;
+            this.currentUser = user;
         }
 
         private void cancelBtn_Click(object sender, EventArgs e)
         {
-            Main_Form frm = new Main_Form(username);
+            Main_Form frm = new Main_Form(currentUser);
             frm.ShowDialog();
             this.Close();
         }

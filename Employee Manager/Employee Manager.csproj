@@ -77,6 +77,7 @@
       <DependentUpon>ListRoom_ChildForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Data.cs" />
+    <Compile Include="FirebaseSetup.cs" />
     <Compile Include="Logout_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +116,7 @@
     <Compile Include="Signup_Form.Designer.cs">
       <DependentUpon>Signup_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Userdata.cs" />
     <EmbeddedResource Include="Child_Forms\ListEmployee_ChildForm.resx">
       <DependentUpon>ListEmployee_ChildForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -27,13 +27,8 @@ namespace Employee_Manager
             InitializeComponent();
         }
 
-        IFirebaseConfig config = new FirebaseConfig
-        {
-            AuthSecret = "Za2NHhoGe0Af8NERiHM1lRVyonuESkRsuypN1WS2",
-            BasePath = "https://test-59665-default-rtdb.firebaseio.com/"
-        };
-
-        IFirebaseClient client;
+        // client for firebase - config from FirebaseSetup.cs
+        private IFirebaseClient client;
 
         private async void signupBtn_ClickAsync(object sender, EventArgs e)
         {
@@ -120,7 +115,7 @@ namespace Employee_Manager
 
         private void Signup_Form_Load(object sender, EventArgs e)
         {
-            client = new FireSharp.FirebaseClient(config);
+            client = FirebaseSetup.InitializeFirebase();
         }
     }
 }

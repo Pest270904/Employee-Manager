@@ -25,12 +25,8 @@ namespace Employee_Manager
         private string sentEmail;
         private string username;
 
-        IFirebaseConfig config = new FirebaseConfig
-        {
-            AuthSecret = "Za2NHhoGe0Af8NERiHM1lRVyonuESkRsuypN1WS2",
-            BasePath = "https://test-59665-default-rtdb.firebaseio.com/"
-        };
-        IFirebaseClient client;
+        // client for firebase - config from FirebaseSetup.cs
+        private IFirebaseClient client;
 
         public Forgot_Pwd_Form()
         {
@@ -122,7 +118,7 @@ namespace Employee_Manager
 
         private void Forgot_Pwd_Form_Load(object sender, EventArgs e)
         {
-            client = new FireSharp.FirebaseClient(config);
+            client = FirebaseSetup.InitializeFirebase();
         }
     }
 }

@@ -38,10 +38,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.emailTB = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.username_notify = new System.Windows.Forms.Label();
-            this.email_notify = new System.Windows.Forms.Label();
-            this.pwd_notify = new System.Windows.Forms.Label();
             this.pwd2_notify = new System.Windows.Forms.Label();
+            this.pwd_notify = new System.Windows.Forms.Label();
+            this.email_notify = new System.Windows.Forms.Label();
+            this.username_notify = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -146,11 +146,12 @@
             this.passwordTB.Location = new System.Drawing.Point(66, 345);
             this.passwordTB.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.passwordTB.Name = "passwordTB";
-            this.passwordTB.PasswordChar = '\0';
+            this.passwordTB.PasswordChar = '●';
             this.passwordTB.PlaceholderText = "Password";
             this.passwordTB.SelectedText = "";
             this.passwordTB.Size = new System.Drawing.Size(336, 46);
             this.passwordTB.TabIndex = 28;
+            this.passwordTB.UseSystemPasswordChar = true;
             this.passwordTB.TextChanged += new System.EventHandler(this.passwordTB_TextChanged);
             // 
             // password2TB
@@ -170,11 +171,12 @@
             this.password2TB.Location = new System.Drawing.Point(66, 451);
             this.password2TB.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.password2TB.Name = "password2TB";
-            this.password2TB.PasswordChar = '\0';
+            this.password2TB.PasswordChar = '●';
             this.password2TB.PlaceholderText = "Enter password again";
             this.password2TB.SelectedText = "";
             this.password2TB.Size = new System.Drawing.Size(336, 46);
             this.password2TB.TabIndex = 29;
+            this.password2TB.UseSystemPasswordChar = true;
             this.password2TB.TextChanged += new System.EventHandler(this.password2TB_TextChanged);
             // 
             // label3
@@ -235,29 +237,17 @@
             this.guna2Panel1.Size = new System.Drawing.Size(488, 648);
             this.guna2Panel1.TabIndex = 32;
             // 
-            // username_notify
+            // pwd2_notify
             // 
-            this.username_notify.AutoSize = true;
-            this.username_notify.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.username_notify.ForeColor = System.Drawing.Color.IndianRed;
-            this.username_notify.Location = new System.Drawing.Point(51, 167);
-            this.username_notify.Name = "username_notify";
-            this.username_notify.Size = new System.Drawing.Size(379, 16);
-            this.username_notify.TabIndex = 32;
-            this.username_notify.Text = "! Your username must have has at least 8-20 character";
-            this.username_notify.Visible = false;
-            // 
-            // email_notify
-            // 
-            this.email_notify.AutoSize = true;
-            this.email_notify.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.email_notify.ForeColor = System.Drawing.Color.IndianRed;
-            this.email_notify.Location = new System.Drawing.Point(104, 247);
-            this.email_notify.Name = "email_notify";
-            this.email_notify.Size = new System.Drawing.Size(250, 16);
-            this.email_notify.TabIndex = 33;
-            this.email_notify.Text = "! Your email should be a legit email";
-            this.email_notify.Visible = false;
+            this.pwd2_notify.AutoSize = true;
+            this.pwd2_notify.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd2_notify.ForeColor = System.Drawing.Color.IndianRed;
+            this.pwd2_notify.Location = new System.Drawing.Point(40, 503);
+            this.pwd2_notify.Name = "pwd2_notify";
+            this.pwd2_notify.Size = new System.Drawing.Size(403, 16);
+            this.pwd2_notify.TabIndex = 34;
+            this.pwd2_notify.Text = "! Your confirmation code should match your first password";
+            this.pwd2_notify.Visible = false;
             // 
             // pwd_notify
             // 
@@ -272,17 +262,29 @@
             this.pwd_notify.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.pwd_notify.Visible = false;
             // 
-            // pwd2_notify
+            // email_notify
             // 
-            this.pwd2_notify.AutoSize = true;
-            this.pwd2_notify.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwd2_notify.ForeColor = System.Drawing.Color.IndianRed;
-            this.pwd2_notify.Location = new System.Drawing.Point(40, 503);
-            this.pwd2_notify.Name = "pwd2_notify";
-            this.pwd2_notify.Size = new System.Drawing.Size(403, 16);
-            this.pwd2_notify.TabIndex = 34;
-            this.pwd2_notify.Text = "! Your confirmation code should match your first password";
-            this.pwd2_notify.Visible = false;
+            this.email_notify.AutoSize = true;
+            this.email_notify.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.email_notify.ForeColor = System.Drawing.Color.IndianRed;
+            this.email_notify.Location = new System.Drawing.Point(104, 247);
+            this.email_notify.Name = "email_notify";
+            this.email_notify.Size = new System.Drawing.Size(250, 16);
+            this.email_notify.TabIndex = 33;
+            this.email_notify.Text = "! Your email should be a legit email";
+            this.email_notify.Visible = false;
+            // 
+            // username_notify
+            // 
+            this.username_notify.AutoSize = true;
+            this.username_notify.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.username_notify.ForeColor = System.Drawing.Color.IndianRed;
+            this.username_notify.Location = new System.Drawing.Point(51, 167);
+            this.username_notify.Name = "username_notify";
+            this.username_notify.Size = new System.Drawing.Size(379, 16);
+            this.username_notify.TabIndex = 32;
+            this.username_notify.Text = "! Your username must have has at least 8-20 character";
+            this.username_notify.Visible = false;
             // 
             // Signup_Form
             // 
