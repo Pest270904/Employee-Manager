@@ -35,42 +35,6 @@ namespace Employee_Manager.Child_Forms
             LoadData();
         }
 
-        private void LoadData()
-        {
-            FirebaseResponse respGet = client.Get("users/" + currentUser.username + "/rooms/");
-            Dictionary<string, RoomData> result;
-
-            if (respGet.Body != "null")
-            {
-                result = respGet.ResultAs<Dictionary<string, RoomData>>();
-            }
-            else
-            {
-                result = new Dictionary<string, RoomData>();
-            }
-
-            DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("roomID");
-            dataTable.Columns.Add("roomName");
-            dataTable.Columns.Add("count");
-
-            foreach (var roomEntry in result)
-            {
-                DataRow row = dataTable.NewRow();
-                row["roomID"] = roomEntry.Value.roomID;
-                row["roomName"] = roomEntry.Value.roomName;
-                row["count"] = roomEntry.Value.countEmployee;
-                dataTable.Rows.Add(row);
-            }
-
-            RoomGridView.DataSource = dataTable;
-        }
-
-        private void ListRoom_ChildForm_Load(object sender, EventArgs e)
-        {
-            client = FirebaseSetup.InitializeFirebase();
-        }
-
         private void updateBtn_Click(object sender, EventArgs e)
         {
             try
@@ -131,6 +95,61 @@ namespace Employee_Manager.Child_Forms
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void searchTB_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(searchTB.Text))
+            {
+                (RoomGridView.DataSource as DataTable).DefaultView.RowFilter = string.Empty;
+            }
+            else
+            {
+                (RoomGridView.DataSource as DataTable).DefaultView.RowFilter = string.Format("roomID='{0}'", searchTB.Text);
+            }
+        }
+
+        private void reloadBtn_Click(object sender, EventArgs e)
+        {
+            searchTB.Clear();
+            LoadData();
+        }
+
+        private void ListRoom_ChildForm_Load(object sender, EventArgs e)
+        {
+            client = FirebaseSetup.InitializeFirebase();
+        }
+
+        // ----------------------------- Individual functions -----------------------------
+        private void LoadData()
+        {
+            FirebaseResponse respGet = client.Get("users/" + currentUser.username + "/rooms/");
+            Dictionary<string, RoomData> result;
+
+            if (respGet.Body != "null")
+            {
+                result = respGet.ResultAs<Dictionary<string, RoomData>>();
+            }
+            else
+            {
+                result = new Dictionary<string, RoomData>();
+            }
+
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("roomID");
+            dataTable.Columns.Add("roomName");
+            dataTable.Columns.Add("count");
+
+            foreach (var roomEntry in result)
+            {
+                DataRow row = dataTable.NewRow();
+                row["roomID"] = roomEntry.Value.roomID;
+                row["roomName"] = roomEntry.Value.roomName;
+                row["count"] = roomEntry.Value.countEmployee;
+                dataTable.Rows.Add(row);
+            }
+
+            RoomGridView.DataSource = dataTable;
         }
     }
 }

@@ -14,8 +14,8 @@ namespace Employee_Manager
         {
             IFirebaseConfig config = new FirebaseConfig
             {
-                AuthSecret = "Za2NHhoGe0Af8NERiHM1lRVyonuESkRsuypN1WS2",
-                BasePath = "https://test-59665-default-rtdb.firebaseio.com/"
+                AuthSecret = "i1jWD1zLnzcJlgIHpv9RzPlOARWduP997qTV8rIM",
+                BasePath = "https://employee-management-f8bdf-default-rtdb.firebaseio.com/"
             };
 
             return new FireSharp.FirebaseClient(config);
