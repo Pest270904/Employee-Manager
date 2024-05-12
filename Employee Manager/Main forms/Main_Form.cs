@@ -28,11 +28,11 @@ namespace Employee_Manager
 
         private void roomBtn_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Child_Forms.ListRoom_ChildForm(), sender);
+            OpenChildForm(new Child_Forms.ListRoom_ChildForm(currentUser), sender);
         }
         private void employeeBtn_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Child_Forms.ListEmployee_ChildForm(), sender);
+            OpenChildForm(new Child_Forms.ListEmployee_ChildForm(currentUser), sender);
         }
 
         private void profileBtn_Click(object sender, EventArgs e)

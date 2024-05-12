@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Employee_Manager.Main_forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,16 @@ namespace Employee_Manager.Child_Forms
 {
     public partial class ListEmployee_ChildForm : Form
     {
-        public ListEmployee_ChildForm()
+        private Userdata currentUser;
+
+        public ListEmployee_ChildForm(Userdata user)
         {
             InitializeComponent();
+            this.currentUser = user;
+        }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {   
         }
     }
 }

@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.addBtn = new Guna.UI2.WinForms.Guna2Button();
             this.updateBtn = new Guna.UI2.WinForms.Guna2Button();
             this.deleteBtn = new Guna.UI2.WinForms.Guna2Button();
             this.searchBtn = new Guna.UI2.WinForms.Guna2Button();
             this.searchTB = new Guna.UI2.WinForms.Guna2TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.RoomGridView = new Guna.UI2.WinForms.Guna2DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.RoomGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -67,6 +68,7 @@
             this.addBtn.Size = new System.Drawing.Size(119, 39);
             this.addBtn.TabIndex = 17;
             this.addBtn.Text = "Add";
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // updateBtn
             // 
@@ -85,6 +87,7 @@
             this.updateBtn.Size = new System.Drawing.Size(119, 39);
             this.updateBtn.TabIndex = 18;
             this.updateBtn.Text = "Update";
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
             // deleteBtn
             // 
@@ -102,6 +105,7 @@
             this.deleteBtn.Size = new System.Drawing.Size(119, 39);
             this.deleteBtn.TabIndex = 19;
             this.deleteBtn.Text = "Delete";
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // searchBtn
             // 
@@ -142,39 +146,66 @@
             this.searchTB.Size = new System.Drawing.Size(196, 35);
             this.searchTB.TabIndex = 21;
             // 
-            // dataGridView1
+            // RoomGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.name});
-            this.dataGridView1.Location = new System.Drawing.Point(63, 141);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(827, 357);
-            this.dataGridView1.TabIndex = 22;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "Room Id";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.Width = 125;
-            // 
-            // name
-            // 
-            this.name.HeaderText = "Room Name";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            this.name.Width = 125;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.RoomGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.RoomGridView.BackgroundColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RoomGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.RoomGridView.ColumnHeadersHeight = 18;
+            this.RoomGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RoomGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            this.RoomGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.RoomGridView.Location = new System.Drawing.Point(63, 144);
+            this.RoomGridView.Name = "RoomGridView";
+            this.RoomGridView.ReadOnly = true;
+            this.RoomGridView.RowHeadersVisible = false;
+            this.RoomGridView.RowHeadersWidth = 51;
+            this.RoomGridView.RowTemplate.Height = 24;
+            this.RoomGridView.Size = new System.Drawing.Size(830, 343);
+            this.RoomGridView.TabIndex = 23;
+            this.RoomGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.RoomGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.RoomGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.RoomGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.RoomGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.RoomGridView.ThemeStyle.BackColor = System.Drawing.Color.LightGray;
+            this.RoomGridView.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.RoomGridView.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.RoomGridView.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.RoomGridView.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RoomGridView.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.RoomGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.RoomGridView.ThemeStyle.HeaderStyle.Height = 18;
+            this.RoomGridView.ThemeStyle.ReadOnly = true;
+            this.RoomGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.RoomGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.RoomGridView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RoomGridView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.RoomGridView.ThemeStyle.RowsStyle.Height = 24;
+            this.RoomGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.RoomGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
             // ListRoom_ChildForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(955, 529);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.RoomGridView);
             this.Controls.Add(this.searchTB);
             this.Controls.Add(this.searchBtn);
             this.Controls.Add(this.deleteBtn);
@@ -183,7 +214,8 @@
             this.Controls.Add(this.label1);
             this.Name = "ListRoom_ChildForm";
             this.Text = "ListRoom_ChildForm";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.ListRoom_ChildForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.RoomGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,8 +229,6 @@
         private Guna.UI2.WinForms.Guna2Button deleteBtn;
         private Guna.UI2.WinForms.Guna2Button searchBtn;
         private Guna.UI2.WinForms.Guna2TextBox searchTB;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private Guna.UI2.WinForms.Guna2DataGridView RoomGridView;
     }
 }

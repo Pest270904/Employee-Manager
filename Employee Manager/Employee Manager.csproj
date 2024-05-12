@@ -76,6 +76,18 @@
     <Compile Include="Child forms\ListRoom_ChildForm.Designer.cs">
       <DependentUpon>ListRoom_ChildForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main forms\Room_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main forms\Room_Add.Designer.cs">
+      <DependentUpon>Room_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main forms\Room_Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main forms\Room_Update.Designer.cs">
+      <DependentUpon>Room_Update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Others\Data.cs" />
     <Compile Include="Others\FirebaseSetup.cs" />
     <Compile Include="Main forms\Logout_Form.cs">
@@ -108,6 +120,7 @@
     <Compile Include="Main forms\Main_Form.Designer.cs">
       <DependentUpon>Main_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Others\RoomData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Main forms\Signup_Form.cs">
@@ -137,6 +150,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main forms\Main_Form.resx">
       <DependentUpon>Main_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main forms\Room_Add.resx">
+      <DependentUpon>Room_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main forms\Room_Update.resx">
+      <DependentUpon>Room_Update.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
