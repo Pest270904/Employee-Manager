@@ -43,6 +43,7 @@ namespace Employee_Manager
         private void logoutBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
+
             this.Close();
             Logout_Form frm = new Logout_Form(currentUser);
             frm.ShowDialog();
