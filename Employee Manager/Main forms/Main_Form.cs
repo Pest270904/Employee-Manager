@@ -1,4 +1,5 @@
 ﻿using Employee_Manager.Child_Forms;
+using Employee_Manager.Main_forms;
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
@@ -42,11 +43,16 @@ namespace Employee_Manager
 
         private void logoutBtn_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Logout_Form confirmLogout = new Logout_Form();
+            DialogResult result = confirmLogout.ShowDialog();
 
-            this.Close();
-            Logout_Form frm = new Logout_Form(currentUser);
-            frm.ShowDialog();
+            if(result == DialogResult.OK)
+            {
+                Hide();
+                Login_Form frm = new Login_Form();
+                frm.ShowDialog();
+                Close();
+            }
         }
 
         private void OpenChildForm(Form childForm, object btnSender)

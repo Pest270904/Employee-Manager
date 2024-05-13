@@ -62,9 +62,9 @@ namespace Employee_Manager
                 if (found)
                 {
                     Main_Form form = new Main_Form(currentUser);
-                    this.Hide();
+                    Hide();
                     form.ShowDialog();
-                    this.Close();
+                    Close();
                 }
                 //Không thì hiện message box cảnh báo
                 else
@@ -98,7 +98,7 @@ namespace Employee_Manager
 
         private void Login_Form_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
         }
     }
 }

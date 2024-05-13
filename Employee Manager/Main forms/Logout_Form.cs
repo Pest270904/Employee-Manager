@@ -12,29 +12,21 @@ namespace Employee_Manager.Child_Forms
 {
     public partial class Logout_Form : Form
     {
-        private string username;
-        private Userdata currentUser;
-
-        public Logout_Form(Userdata user)
+        public Logout_Form()
         {
             InitializeComponent();
-            this.currentUser = user;
         }
 
         private void cancelBtn_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            this.Close();
-            Main_Form frm = new Main_Form(currentUser);
-            frm.ShowDialog();
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
 
         private void okayBtn_Click(object sender, EventArgs e)
         {
-            Login_Form frm = new Login_Form();
-            this.Hide();
-            frm.ShowDialog();
-            this.Close();
+            DialogResult = DialogResult.OK;
+            Close();
         }
     }
 }
