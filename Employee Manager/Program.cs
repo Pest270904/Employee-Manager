@@ -16,7 +16,7 @@ namespace Employee_Manager
         {
             if (Environment.OSVersion.Version.Major >= 6)
             {
-                SetProcessDPIAware();
+                SetProcessDPIAware() ;
             }
 
             Application.EnableVisualStyles();
