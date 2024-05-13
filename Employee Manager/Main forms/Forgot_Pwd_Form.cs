@@ -82,8 +82,8 @@ namespace Employee_Manager
 
                 message.From = new MailAddress("ntpllc2k4@gmail.com");
                 message.To.Add(new MailAddress(emailTB.Text));
-                message.Subject = "Change password";
-                message.Body = "Your code " + code;
+                message.Subject = "Change password confirmation";
+                message.Body = "Here is your confirmation code to finish changing password: " + code;
 
                 smtpClient.Port = 587;
                 smtpClient.Host = "smtp.gmail.com";

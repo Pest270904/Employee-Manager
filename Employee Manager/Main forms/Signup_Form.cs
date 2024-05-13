@@ -11,6 +11,7 @@ using FireSharp.Config;
 using FireSharp.Response;
 using FireSharp.Interfaces;
 using System.Text.RegularExpressions;
+using Employee_Manager.Main_forms;
 
 
 namespace Employee_Manager
@@ -38,19 +39,29 @@ namespace Employee_Manager
                     MessageBox.Show("Please fill all fields!");
                 else
                 {
-                    var dataLayer = new Data
+                    Signup_Confirm_Form confirmFrm = new Signup_Confirm_Form(emailTB.Text);
+                    DialogResult resultConfirm = confirmFrm.ShowDialog();
+
+                    if(resultConfirm == DialogResult.OK)
                     {
-                        username = usernameTB.Text,
-                        email = emailTB.Text,
-                        name = nameTB.Text,
-                        password = passwordTB.Text,
-                    };
+                        var dataLayer = new Data
+                        {
+                            username = usernameTB.Text,
+                            email = emailTB.Text,
+                            name = nameTB.Text,
+                            password = passwordTB.Text,
+                        };
 
-                    SetResponse resp = await client.SetTaskAsync("users/" + usernameTB.Text, dataLayer);
-                    Data result = resp.ResultAs<Data>();
-                    MessageBox.Show("Signup completed!");
+                        SetResponse resp = await client.SetTaskAsync("users/" + usernameTB.Text, dataLayer);
+                        Data result = resp.ResultAs<Data>();
+                        MessageBox.Show("Signup completed!");
 
-                    this.Close();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Signup failed, please try again!");
+                    }
                 }
             }
         }

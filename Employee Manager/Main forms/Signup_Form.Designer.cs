@@ -79,7 +79,7 @@
             this.usernameTB.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.usernameTB.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.usernameTB.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.usernameTB.Location = new System.Drawing.Point(66, 116);
+            this.usernameTB.Location = new System.Drawing.Point(67, 112);
             this.usernameTB.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.usernameTB.Name = "usernameTB";
             this.usernameTB.PasswordChar = '\0';
@@ -143,7 +143,7 @@
             this.passwordTB.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.passwordTB.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.passwordTB.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.passwordTB.Location = new System.Drawing.Point(66, 345);
+            this.passwordTB.Location = new System.Drawing.Point(66, 347);
             this.passwordTB.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.passwordTB.Name = "passwordTB";
             this.passwordTB.PasswordChar = '●';
@@ -168,7 +168,7 @@
             this.password2TB.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.password2TB.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.password2TB.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.password2TB.Location = new System.Drawing.Point(66, 451);
+            this.password2TB.Location = new System.Drawing.Point(66, 437);
             this.password2TB.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.password2TB.Name = "password2TB";
             this.password2TB.PasswordChar = '●';
@@ -242,18 +242,18 @@
             this.pwd2_notify.AutoSize = true;
             this.pwd2_notify.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pwd2_notify.ForeColor = System.Drawing.Color.IndianRed;
-            this.pwd2_notify.Location = new System.Drawing.Point(40, 503);
+            this.pwd2_notify.Location = new System.Drawing.Point(23, 494);
             this.pwd2_notify.Name = "pwd2_notify";
-            this.pwd2_notify.Size = new System.Drawing.Size(403, 16);
+            this.pwd2_notify.Size = new System.Drawing.Size(435, 16);
             this.pwd2_notify.TabIndex = 34;
-            this.pwd2_notify.Text = "! Your confirmation code should match your first password";
+            this.pwd2_notify.Text = "! Your confirmation password should match your first password\r\n";
             this.pwd2_notify.Visible = false;
             // 
             // pwd_notify
             // 
             this.pwd_notify.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pwd_notify.ForeColor = System.Drawing.Color.IndianRed;
-            this.pwd_notify.Location = new System.Drawing.Point(35, 406);
+            this.pwd_notify.Location = new System.Drawing.Point(36, 400);
             this.pwd_notify.Name = "pwd_notify";
             this.pwd_notify.Size = new System.Drawing.Size(403, 32);
             this.pwd_notify.TabIndex = 33;
