@@ -24,58 +24,6 @@ namespace Employee_Manager
                 components.Dispose();
             }
             base.Dispose(disposing);
-            if (String.IsNullOrEmpty(roomID_TB.Text) || String.IsNullOrEmpty(roomName_TB.Text))
-            {
-                MessageBox.Show("Please fill all the fields");
-            }
-            else
-            {
-                FirebaseResponse respGet = client.Get("users/" + currentUser.username + "/rooms/");
-                Dictionary<string, RoomData> result;
-
-                if (respGet.Body != "null")
-                {
-                    result = respGet.ResultAs<Dictionary<string, RoomData>>();
-                }
-                else
-                {
-                    result = new Dictionary<string, RoomData>();
-                }
-
-                bool ifExist = false;
-
-                // check if roomId is already exists for current user
-                foreach (var get in result)
-                {
-                    if (roomID_TB.Text == get.Value.roomID && roomID_TB.Text != roomID)
-                    {
-                        ifExist = true;
-                        break;
-                    }
-                }
-
-                if (!ifExist)
-                {
-                    // Delete old room
-                    FirebaseResponse responseDel = client.Delete("users/" + currentUser.username + "/rooms/r" + roomID);
-
-                    var dataLayer = new RoomData
-                    {
-                        roomID = roomID_TB.Text,
-                        roomName = roomName_TB.Text,
-                        countEmployee = count
-                    };
-
-                    // Add new updated room
-                    SetResponse resp = await client.SetTaskAsync("users/" + currentUser.username + "/rooms/r" + roomID_TB.Text, dataLayer);
-                    MessageBox.Show("Update successfully");
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Room ID is already exists");
-                }
-            }
         }
 
         #region Windows Form Designer generated code
