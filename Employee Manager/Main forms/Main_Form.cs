@@ -40,7 +40,15 @@ namespace Employee_Manager
         {
             OpenChildForm(new Child_Forms.Profile_ChildForm(currentUser), sender);
         }
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Child_Forms.Chat_ChildForm(currentUser), sender);
+        }
 
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            //OpenChildForm(new Child_Forms.Client(currentUser), sender);
+        }
         private void logoutBtn_Click(object sender, EventArgs e)
         {
             Logout_Form confirmLogout = new Logout_Form();
@@ -94,5 +102,7 @@ namespace Employee_Manager
                     btn.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             }
         }
+
+
     }
 }
