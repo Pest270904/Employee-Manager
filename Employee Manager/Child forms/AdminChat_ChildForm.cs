@@ -9,23 +9,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Employee_Manager.Child_Forms
 {
-    public partial class ListEmployee_ChildForm : Form
+    public partial class AdminChat_ChildForm : Form
     {
         private Userdata currentUser;
 
-        public ListEmployee_ChildForm(Userdata user)
+        public AdminChat_ChildForm(Userdata user)
         {
             InitializeComponent();
             this.currentUser = user;
         }
-
-        private void addBtn_Click(object sender, EventArgs e)
-        {   
-        }
-
-        private void ListEmployee_ChildForm_Load(object sender, EventArgs e)
+        private void AdminChat_ChildForm_Load(object sender, EventArgs e)
         {
 
         }

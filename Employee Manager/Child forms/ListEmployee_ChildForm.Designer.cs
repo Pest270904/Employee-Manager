@@ -212,6 +212,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ListEmployee_ChildForm";
             this.Text = "ListEmployee_ChildForm";
+            this.Load += new System.EventHandler(this.ListEmployee_ChildForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

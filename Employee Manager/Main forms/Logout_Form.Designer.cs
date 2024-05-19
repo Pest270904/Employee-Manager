@@ -46,7 +46,7 @@
             this.okayBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.okayBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.okayBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(93)))), ((int)(((byte)(40)))));
-            this.okayBtn.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.okayBtn.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.okayBtn.ForeColor = System.Drawing.Color.White;
             this.okayBtn.Location = new System.Drawing.Point(275, 340);
             this.okayBtn.Name = "okayBtn";
@@ -59,27 +59,29 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(46, 232);
+            this.label1.Font = new System.Drawing.Font("Segoe UI Black", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(16, 228);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(422, 45);
+            this.label1.Size = new System.Drawing.Size(481, 54);
             this.label1.TabIndex = 24;
             this.label1.Text = "Are you sure to logout?";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // cancelBtn
             // 
             this.cancelBtn.BorderRadius = 19;
+            this.cancelBtn.BorderThickness = 1;
             this.cancelBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.cancelBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.cancelBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.cancelBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.cancelBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.cancelBtn.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.cancelBtn.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelBtn.ForeColor = System.Drawing.Color.White;
             this.cancelBtn.Location = new System.Drawing.Point(49, 340);
             this.cancelBtn.Name = "cancelBtn";
-            this.cancelBtn.Size = new System.Drawing.Size(169, 41);
-            this.cancelBtn.TabIndex = 21;
+            this.cancelBtn.Size = new System.Drawing.Size(188, 41);
+            this.cancelBtn.TabIndex = 25;
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 

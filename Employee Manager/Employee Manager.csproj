@@ -64,6 +64,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Child forms\AdminChat_ChildForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Child forms\AdminChat_ChildForm.Designer.cs">
+      <DependentUpon>AdminChat_ChildForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Child forms\Chat_ChildForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Child forms\Chat_ChildForm.Designer.cs">
+      <DependentUpon>Chat_ChildForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Child forms\ListEmployee_ChildForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +148,12 @@
       <DependentUpon>Signup_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Others\Userdata.cs" />
+    <EmbeddedResource Include="Child forms\AdminChat_ChildForm.resx">
+      <DependentUpon>AdminChat_ChildForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Child forms\Chat_ChildForm.resx">
+      <DependentUpon>Chat_ChildForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Child forms\ListEmployee_ChildForm.resx">
       <DependentUpon>ListEmployee_ChildForm.cs</DependentUpon>
     </EmbeddedResource>

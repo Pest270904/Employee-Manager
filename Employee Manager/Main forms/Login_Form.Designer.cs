@@ -150,6 +150,7 @@
             // 
             // loginBtn
             // 
+            this.loginBtn.BackColor = System.Drawing.Color.White;
             this.loginBtn.BorderRadius = 19;
             this.loginBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.loginBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;

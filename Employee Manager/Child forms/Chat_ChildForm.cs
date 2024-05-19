@@ -11,21 +11,17 @@ using System.Windows.Forms;
 
 namespace Employee_Manager.Child_Forms
 {
-    public partial class ListEmployee_ChildForm : Form
+    public partial class Chat_ChildForm : Form
     {
         private Userdata currentUser;
 
-        public ListEmployee_ChildForm(Userdata user)
+        public Chat_ChildForm(Userdata user)
         {
             InitializeComponent();
             this.currentUser = user;
         }
 
-        private void addBtn_Click(object sender, EventArgs e)
-        {   
-        }
-
-        private void ListEmployee_ChildForm_Load(object sender, EventArgs e)
+        private void Chat_ChildForm_Load(object sender, EventArgs e)
         {
 
         }
