@@ -164,5 +164,10 @@ namespace Employee_Manager.Child_Forms
         {
 
         }
+
+        private void ListEmployee_ChildForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,4 +1,10 @@
-﻿namespace Employee_Manager
+﻿using Employee_Manager.Others;
+using System.Collections.Generic;
+using System.Net;
+using System.Windows.Forms;
+using System;
+
+namespace Employee_Manager
 {
     partial class Main_Form
     {
@@ -37,17 +43,19 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.username_main = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelDesktopPane = new System.Windows.Forms.Panel();
+            this.chatBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(32)))), ((int)(((byte)(43)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(67)))), ((int)(((byte)(2)))));
+            this.panel1.Controls.Add(this.chatBtn);
             this.panel1.Controls.Add(this.logoutBtn);
             this.panel1.Controls.Add(this.profileBtn);
             this.panel1.Controls.Add(this.label1);
@@ -70,8 +78,8 @@
             this.logoutBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.logoutBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.logoutBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.logoutBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(170)))), ((int)(((byte)(109)))));
-            this.logoutBtn.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.logoutBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(67)))), ((int)(((byte)(2)))));
+            this.logoutBtn.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logoutBtn.ForeColor = System.Drawing.Color.White;
             this.logoutBtn.Location = new System.Drawing.Point(22, 592);
             this.logoutBtn.Name = "logoutBtn";
@@ -89,8 +97,8 @@
             this.profileBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.profileBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.profileBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.profileBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(170)))), ((int)(((byte)(109)))));
-            this.profileBtn.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.profileBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(67)))), ((int)(((byte)(2)))));
+            this.profileBtn.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.profileBtn.ForeColor = System.Drawing.Color.White;
             this.profileBtn.Location = new System.Drawing.Point(22, 522);
             this.profileBtn.Name = "profileBtn";
@@ -117,8 +125,8 @@
             this.employeeBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.employeeBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.employeeBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.employeeBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(170)))), ((int)(((byte)(109)))));
-            this.employeeBtn.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.employeeBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(67)))), ((int)(((byte)(2)))));
+            this.employeeBtn.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.employeeBtn.ForeColor = System.Drawing.Color.White;
             this.employeeBtn.Location = new System.Drawing.Point(24, 233);
             this.employeeBtn.Name = "employeeBtn";
@@ -136,8 +144,8 @@
             this.roomBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.roomBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.roomBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.roomBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(170)))), ((int)(((byte)(109)))));
-            this.roomBtn.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.roomBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(67)))), ((int)(((byte)(2)))));
+            this.roomBtn.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roomBtn.ForeColor = System.Drawing.Color.White;
             this.roomBtn.Location = new System.Drawing.Point(24, 163);
             this.roomBtn.Name = "roomBtn";
@@ -150,11 +158,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 10F, System.Drawing.FontStyle.Bold);
+            this.label3.Font = new System.Drawing.Font("Segoe UI Black", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(11, 32);
+            this.label3.Location = new System.Drawing.Point(10, 37);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(213, 48);
+            this.label3.Size = new System.Drawing.Size(220, 50);
             this.label3.TabIndex = 41;
             this.label3.Text = "Employee Management\r\nSystem";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -172,27 +180,14 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 24F, System.Drawing.FontStyle.Bold);
+            this.label4.Font = new System.Drawing.Font("Segoe UI Black", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(75, 32);
+            this.label4.Location = new System.Drawing.Point(67, 22);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(132, 52);
+            this.label4.Size = new System.Drawing.Size(145, 60);
             this.label4.TabIndex = 46;
             this.label4.Text = "E.M.S";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // guna2ImageButton1
-            // 
-            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.Image = global::Employee_Manager.Properties.Resources.user_profile1;
-            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton1.ImageRotate = 0F;
-            this.guna2ImageButton1.Location = new System.Drawing.Point(604, 22);
-            this.guna2ImageButton1.Name = "guna2ImageButton1";
-            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.Size = new System.Drawing.Size(79, 70);
-            this.guna2ImageButton1.TabIndex = 48;
             // 
             // username_main
             // 
@@ -209,7 +204,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(42)))), ((int)(((byte)(53)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(22)))), ((int)(((byte)(155)))));
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.username_main);
             this.panel2.Controls.Add(this.guna2ImageButton1);
@@ -226,6 +221,38 @@
             this.panelDesktopPane.Name = "panelDesktopPane";
             this.panelDesktopPane.Size = new System.Drawing.Size(953, 542);
             this.panelDesktopPane.TabIndex = 51;
+            // 
+            // chatBtn
+            // 
+            this.chatBtn.BorderColor = System.Drawing.Color.White;
+            this.chatBtn.BorderRadius = 19;
+            this.chatBtn.BorderThickness = 1;
+            this.chatBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.chatBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.chatBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.chatBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.chatBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(67)))), ((int)(((byte)(2)))));
+            this.chatBtn.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chatBtn.ForeColor = System.Drawing.Color.White;
+            this.chatBtn.Location = new System.Drawing.Point(24, 303);
+            this.chatBtn.Name = "chatBtn";
+            this.chatBtn.Size = new System.Drawing.Size(184, 41);
+            this.chatBtn.TabIndex = 46;
+            this.chatBtn.Text = "Chat";
+            this.chatBtn.Click += new System.EventHandler(this.chatBtn_Click);
+            // 
+            // guna2ImageButton1
+            // 
+            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.Image = global::Employee_Manager.Properties.Resources.user_profile1;
+            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton1.ImageRotate = 0F;
+            this.guna2ImageButton1.Location = new System.Drawing.Point(604, 22);
+            this.guna2ImageButton1.Name = "guna2ImageButton1";
+            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.Size = new System.Drawing.Size(79, 70);
+            this.guna2ImageButton1.TabIndex = 48;
             // 
             // Main_Form
             // 
@@ -261,5 +288,6 @@
         private System.Windows.Forms.Label username_main;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panelDesktopPane;
+        private Guna.UI2.WinForms.Guna2Button chatBtn;
     }
 }

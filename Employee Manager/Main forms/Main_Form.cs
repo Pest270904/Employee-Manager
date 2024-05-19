@@ -1,5 +1,4 @@
 ﻿using Employee_Manager.Child_Forms;
-using Employee_Manager.Main_forms;
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
@@ -35,7 +34,10 @@ namespace Employee_Manager
         {
             OpenChildForm(new Child_Forms.ListEmployee_ChildForm(currentUser), sender);
         }
-
+        private void chatBtn_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Child_Forms.Chat_ChildForm(currentUser), sender);
+        }
         private void profileBtn_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Child_Forms.Profile_ChildForm(currentUser), sender);
@@ -86,11 +88,12 @@ namespace Employee_Manager
         }
         private void DisableButton()
         {
-            Guna2Button[] btnArr = { roomBtn, logoutBtn, profileBtn, employeeBtn };
+            Guna2Button[] btnArr = { roomBtn, logoutBtn, profileBtn, employeeBtn, chatBtn };
 
             foreach (Guna2Button btn in btnArr)
             {
-                    btn.FillColor = Color.FromArgb(4, 170, 109);
+                    // màu cũ 4 , 170, 109
+                    btn.FillColor = Color.FromArgb(31, 67, 2);
                     btn.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             }
         }
