@@ -21,79 +21,87 @@ namespace Employee_Manager.Child_Forms
 {
     public partial class Chat_ChildForm : Form
     {
-        public Chat_ChildForm()
-        {
-            InitializeComponent();
-            Control.CheckForIllegalCrossThreadCalls = false;
-            Connect();
-        }
+        private TcpClient client;
+        private NetworkStream stream;
 
+        private readonly string serverIp = "127.0.0.1";
+        private readonly int serverPort = 2004;
+        string name = string.Empty;
         private Userdata currentUser;
-        private bool email = false;
-       // private IFirebaseClient client;
         public Chat_ChildForm(Userdata user)
         {
             InitializeComponent();
+            chat_box.ReadOnly = true;
+
+        //this.ActiveControl = name_box;
+            ConnectToServer();
             this.currentUser = user;
-            username_label.Text = currentUser.username;
-            string username = currentUser.name;
-            string email = currentUser.email;
-        }
-        
-        
-
-
-
-        IPEndPoint ipe;
-        Socket client;
-        TcpListener tcplisten;
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-            Send(client);
+            name = currentUser.username;
         }
 
-        void Connect()
+        private void ConnectToServer()
         {
-           ipe = new IPEndPoint(IPAddress.Any, 9999);
-           tcplisten = new TcpListener(ipe);
-
-           Thread thread = new Thread(() =>
-                    {
-                        while (true)
-                        {
-                            tcplisten.Start();
-
-                            client = tcplisten.AcceptSocket();
-                            Thread rec = new Thread(Receive);
-                            rec.IsBackground = true;
-                            rec.Start();
-                        }
-                    });
-                    thread.IsBackground = true;
-                    thread.Start(client);
-
-        }
-        void Send(Socket client)
-        {
-            byte[]data = Encoding.UTF8.GetBytes(tboxMess.Text);
-            client.Send(data);
-            Addmessage(tboxMess.Text);
-        }
-        void Receive(Object obj)
-        {
-            while(true)
+            try
             {
-                Socket clinet = obj as Socket;
-                byte[] recv = new byte[1024];
-                client.Receive(recv);
-                string s = Encoding.UTF8.GetString(recv);
-                Addmessage(s);
+                client = new TcpClient();
+                client.Connect(serverIp, serverPort);
+                stream = client.GetStream();
+                MessageBox.Show("Connected to the server!");
+
+                Task.Run(ReceiveMessages);
+            }
+            catch (SocketException ex)
+            {
+                MessageBox.Show("Failed to connect to the server: " + ex.Message);
+            }
+        }
+
+        private async Task ReceiveMessages()
+        {
+            try
+            {
+                while (true)
+                {
+                    byte[] buffer = new byte[1024];
+                    int bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length);
+                    string receivedMessage = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+
+                    Invoke((Action)(() =>
+                    {
+                        chat_box.AppendText(receivedMessage);
+                        chat_box.ScrollToCaret();
+                    }));
+                }
+            }
+            catch (Exception ex) when (ex is ObjectDisposedException || ex is InvalidOperationException)
+            {
+                MessageBox.Show("Disconnected from the server.");
+            }
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            client?.Close();
+        }
+
+
+        private void send_btn_Click(object sender, EventArgs e)
+        {
+            if (client == null || !client.Connected)
+            {
+                MessageBox.Show("Not connected to the server!");
+                return;
             }
 
-        }
-        void Addmessage (string message)
-        {
-            lvMess.Items.Add(message);
+            string message = $"{name}: {message_box.Text}\r\n";
+            chat_box.AppendText(message);
+
+            byte[] data = Encoding.UTF8.GetBytes(message);
+            stream.Write(data, 0, data.Length);
+
+            message_box.Text = "";
+            this.ActiveControl = message_box;
         }
     }
 }

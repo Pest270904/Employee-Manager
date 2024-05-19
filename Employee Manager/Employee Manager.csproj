@@ -70,12 +70,6 @@
     <Compile Include="Child forms\Chat_ChildForm.Designer.cs">
       <DependentUpon>Chat_ChildForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Child forms\Client.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Child forms\Client.Designer.cs">
-      <DependentUpon>Client.cs</DependentUpon>
-    </Compile>
     <Compile Include="Child forms\ListEmployee_ChildForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +81,12 @@
     </Compile>
     <Compile Include="Child forms\ListRoom_ChildForm.Designer.cs">
       <DependentUpon>ListRoom_ChildForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main forms\Server.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main forms\Server.Designer.cs">
+      <DependentUpon>Server.cs</DependentUpon>
     </Compile>
     <Compile Include="Main forms\Signup_Confirm_Form.cs">
       <SubType>Form</SubType>
@@ -151,14 +151,14 @@
     <EmbeddedResource Include="Child forms\Chat_ChildForm.resx">
       <DependentUpon>Chat_ChildForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Child forms\Client.resx">
-      <DependentUpon>Client.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Child forms\ListEmployee_ChildForm.resx">
       <DependentUpon>ListEmployee_ChildForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Child forms\ListRoom_ChildForm.resx">
       <DependentUpon>ListRoom_ChildForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main forms\Server.resx">
+      <DependentUpon>Server.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main forms\Signup_Confirm_Form.resx">
       <DependentUpon>Signup_Confirm_Form.cs</DependentUpon>

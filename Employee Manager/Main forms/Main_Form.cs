@@ -47,7 +47,12 @@ namespace Employee_Manager
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            //OpenChildForm(new Child_Forms.Client(currentUser), sender);
+            Server form = new Server();
+            form.Show();
+            EventArgs eventArgs = EventArgs.Empty;
+            object Send = new object();
+            form.listen_btn_Click(Send, eventArgs);
+            form.Hide();
         }
         private void logoutBtn_Click(object sender, EventArgs e)
         {
