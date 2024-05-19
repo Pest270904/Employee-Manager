@@ -1,4 +1,10 @@
-﻿namespace Employee_Manager
+﻿using Employee_Manager.Others;
+using System.Collections.Generic;
+using System.Net;
+using System.Windows.Forms;
+using System;
+
+namespace Employee_Manager
 {
     partial class Main_Form
     {

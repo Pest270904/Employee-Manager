@@ -1,4 +1,10 @@
-﻿namespace Employee_Manager.Main_forms
+﻿using Employee_Manager.Others;
+using System.Collections.Generic;
+using System.Net;
+using System.Windows.Forms;
+using System;
+
+namespace Employee_Manager.Main_forms
 {
     partial class Room_Add
     {
