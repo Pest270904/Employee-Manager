@@ -56,8 +56,11 @@ namespace Employee_Manager.Child_Forms
         // ----------------------------- Individual functions -----------------------------
         private void LoadData()
         {
+            MessageBox.Show("Reaached");
+
             // Truy xuất room ID
-            var result= RetrieveRoomID();
+            var result = RetrieveRoomID();
+
             foreach (var roomEntry in result)
             {
                 //Truy xuất empoyees từ firebase
@@ -162,12 +165,36 @@ namespace Employee_Manager.Child_Forms
 
         private void updateBtn_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (employeeGridView.SelectedRows.Count > 0)
+                {
+                    // Retrieve data from the selected row
+                    DataGridViewRow selectedRow = employeeGridView.SelectedRows[0];
 
+                    //Đoạn này lấy dữ liệu từ gridview
+                    string roomId = selectedRow.Cells["roomID"].Value.ToString();
+                    string roomName = selectedRow.Cells["roomName"].Value.ToString();
+                    int employeeCount = Convert.ToInt32(selectedRow.Cells["count"].Value);
+
+                    Room_Update frm = new Room_Update(roomId, roomName, employeeCount, currentUser);
+                    frm.ShowDialog();
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Please select a row to update data");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        private void ListEmployee_ChildForm_Load(object sender, EventArgs e)
-        {
 
-        }
+
+
+
     }
 }
