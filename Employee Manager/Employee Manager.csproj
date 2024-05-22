@@ -140,6 +140,12 @@
     <Compile Include="Child forms\ListRoom_ChildForm.Designer.cs">
       <DependentUpon>ListRoom_ChildForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main forms\Server.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main forms\Server.Designer.cs">
+      <DependentUpon>Server.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main forms\Signup_Confirm_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,8 +218,8 @@
     <EmbeddedResource Include="Child forms\ListRoom_ChildForm.resx">
       <DependentUpon>ListRoom_ChildForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main forms\Employees_Add.resx">
-      <DependentUpon>Employees_Add.cs</DependentUpon>
+    <EmbeddedResource Include="Main forms\Server.resx">
+      <DependentUpon>Server.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main forms\Signup_Confirm_Form.resx">
       <DependentUpon>Signup_Confirm_Form.cs</DependentUpon>

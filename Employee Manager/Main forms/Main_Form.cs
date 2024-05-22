@@ -1,4 +1,5 @@
 ﻿using Employee_Manager.Child_Forms;
+using Employee_Manager.Main_forms;
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
@@ -96,6 +97,16 @@ namespace Employee_Manager
                     btn.FillColor = Color.FromArgb(31, 67, 2);
                     btn.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             }
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            Server form = new Server();
+            form.Show();
+            EventArgs eventArgs = EventArgs.Empty;
+            object Send = new object();
+            form.listen_btn_Click_1(Send, eventArgs);
+            form.Hide();
         }
     }
 }
