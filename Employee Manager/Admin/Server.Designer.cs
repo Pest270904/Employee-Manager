@@ -34,17 +34,19 @@
             // 
             // message_box
             // 
-            this.message_box.Location = new System.Drawing.Point(12, 85);
+            this.message_box.Location = new System.Drawing.Point(11, 68);
+            this.message_box.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.message_box.Name = "message_box";
-            this.message_box.Size = new System.Drawing.Size(390, 125);
+            this.message_box.Size = new System.Drawing.Size(535, 243);
             this.message_box.TabIndex = 13;
             this.message_box.Text = "";
             // 
             // listen_btn
             // 
-            this.listen_btn.Location = new System.Drawing.Point(283, 39);
+            this.listen_btn.Location = new System.Drawing.Point(232, 23);
+            this.listen_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listen_btn.Name = "listen_btn";
-            this.listen_btn.Size = new System.Drawing.Size(108, 29);
+            this.listen_btn.Size = new System.Drawing.Size(96, 23);
             this.listen_btn.TabIndex = 12;
             this.listen_btn.Text = "Listen";
             this.listen_btn.UseVisualStyleBackColor = true;
@@ -52,11 +54,12 @@
             // 
             // Server
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(437, 280);
+            this.ClientSize = new System.Drawing.Size(568, 334);
             this.Controls.Add(this.message_box);
             this.Controls.Add(this.listen_btn);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Server";
             this.Text = "Server";
             this.ResumeLayout(false);

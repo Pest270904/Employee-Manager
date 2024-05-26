@@ -1,4 +1,4 @@
-﻿namespace Employee_Manager.Main_forms
+﻿namespace Employee_Manager.Update_data_forms
 {
     partial class Room_Update
     {
@@ -62,6 +62,7 @@
             this.label2.Size = new System.Drawing.Size(97, 16);
             this.label2.TabIndex = 23;
             this.label2.Text = "Room \'s name:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // roomName_TB
             // 
@@ -82,6 +83,7 @@
             this.roomName_TB.SelectedText = "";
             this.roomName_TB.Size = new System.Drawing.Size(136, 31);
             this.roomName_TB.TabIndex = 22;
+            this.roomName_TB.TextChanged += new System.EventHandler(this.roomName_TB_TextChanged);
             // 
             // label1
             // 
@@ -91,6 +93,7 @@
             this.label1.Size = new System.Drawing.Size(63, 16);
             this.label1.TabIndex = 21;
             this.label1.Text = "Room ID:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // roomID_TB
             // 
@@ -111,6 +114,7 @@
             this.roomID_TB.SelectedText = "";
             this.roomID_TB.Size = new System.Drawing.Size(136, 31);
             this.roomID_TB.TabIndex = 20;
+            this.roomID_TB.TextChanged += new System.EventHandler(this.roomID_TB_TextChanged);
             // 
             // update_Btn
             // 

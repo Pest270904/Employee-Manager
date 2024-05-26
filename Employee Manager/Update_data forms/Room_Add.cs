@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
-namespace Employee_Manager.Main_forms
+namespace Employee_Manager.Update_data_forms
 {
     public partial class Room_Add : Form
     {

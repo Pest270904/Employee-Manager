@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
-namespace Employee_Manager.Main_forms
+namespace Employee_Manager.Update_data_forms
 {
     public partial class Room_Update : Form
     {
@@ -96,6 +96,26 @@ namespace Employee_Manager.Main_forms
         private void back_Btn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void roomName_TB_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void roomID_TB_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

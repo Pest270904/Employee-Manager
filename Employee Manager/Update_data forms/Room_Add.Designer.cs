@@ -4,7 +4,7 @@ using System.Net;
 using System.Windows.Forms;
 using System;
 
-namespace Employee_Manager.Main_forms
+namespace Employee_Manager.Update_data_forms
 {
     partial class Room_Add
     {

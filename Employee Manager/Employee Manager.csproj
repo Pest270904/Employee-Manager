@@ -64,6 +64,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Admin_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Admin_Main.Designer.cs">
+      <DependentUpon>Admin_Main.cs</DependentUpon>
+    </Compile>
     <Compile Include="Child forms\AdminChat_ChildForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,10 +94,30 @@
     <Compile Include="Child forms\ListRoom_ChildForm.Designer.cs">
       <DependentUpon>ListRoom_ChildForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main forms\Server.cs">
+    <Compile Include="Child forms\ListUser_ChildForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main forms\Server.Designer.cs">
+    <Compile Include="Child forms\ListUser_ChildForm.Designer.cs">
+      <DependentUpon>ListUser_ChildForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Others\MessageContent.cs" />
+    <Compile Include="Others\Messages.cs" />
+    <Compile Include="Update_data forms\Employees_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update_data forms\Employees_Add.Designer.cs">
+      <DependentUpon>Employees_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Update_data forms\Employees_Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update_data forms\Employees_Update.Designer.cs">
+      <DependentUpon>Employees_Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Server.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Server.Designer.cs">
       <DependentUpon>Server.cs</DependentUpon>
     </Compile>
     <Compile Include="Main forms\Signup_Confirm_Form.cs">
@@ -100,19 +126,20 @@
     <Compile Include="Main forms\Signup_Confirm_Form.Designer.cs">
       <DependentUpon>Signup_Confirm_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main forms\Room_Add.cs">
+    <Compile Include="Update_data forms\Room_Add.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main forms\Room_Add.Designer.cs">
+    <Compile Include="Update_data forms\Room_Add.Designer.cs">
       <DependentUpon>Room_Add.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main forms\Room_Update.cs">
+    <Compile Include="Update_data forms\Room_Update.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main forms\Room_Update.Designer.cs">
+    <Compile Include="Update_data forms\Room_Update.Designer.cs">
       <DependentUpon>Room_Update.cs</DependentUpon>
     </Compile>
     <Compile Include="Others\Data.cs" />
+    <Compile Include="Others\Employees.cs" />
     <Compile Include="Others\FirebaseSetup.cs" />
     <Compile Include="Main forms\Logout_Form.cs">
       <SubType>Form</SubType>
@@ -154,6 +181,15 @@
       <DependentUpon>Signup_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Others\Userdata.cs" />
+    <Compile Include="Update_data forms\User_Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update_data forms\User_Update.Designer.cs">
+      <DependentUpon>User_Update.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Admin\Admin_Main.resx">
+      <DependentUpon>Admin_Main.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Child forms\AdminChat_ChildForm.resx">
       <DependentUpon>AdminChat_ChildForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -166,7 +202,13 @@
     <EmbeddedResource Include="Child forms\ListRoom_ChildForm.resx">
       <DependentUpon>ListRoom_ChildForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main forms\Server.resx">
+    <EmbeddedResource Include="Child forms\ListUser_ChildForm.resx">
+      <DependentUpon>ListUser_ChildForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Update_data forms\Employees_Add.resx">
+      <DependentUpon>Employees_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Server.resx">
       <DependentUpon>Server.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main forms\Signup_Confirm_Form.resx">
@@ -187,10 +229,13 @@
     <EmbeddedResource Include="Main forms\Main_Form.resx">
       <DependentUpon>Main_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main forms\Room_Add.resx">
+    <EmbeddedResource Include="Update_data forms\Employees_Update.resx">
+      <DependentUpon>Employees_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Update_data forms\Room_Add.resx">
       <DependentUpon>Room_Add.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main forms\Room_Update.resx">
+    <EmbeddedResource Include="Update_data forms\Room_Update.resx">
       <DependentUpon>Room_Update.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -205,6 +250,9 @@
     </Compile>
     <EmbeddedResource Include="Main forms\Signup_Form.resx">
       <DependentUpon>Signup_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Update_data forms\User_Update.resx">
+      <DependentUpon>User_Update.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

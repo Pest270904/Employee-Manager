@@ -1,4 +1,5 @@
-﻿using FireSharp.Config;
+﻿using Employee_Manager.Admin;
+using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
 using System;
@@ -61,10 +62,20 @@ namespace Employee_Manager
                 //Nếu tồn tại thì đưa về home
                 if (found)
                 {
-                    Main_Form form = new Main_Form(currentUser);
-                    Hide();
-                    form.ShowDialog();
-                    Close();
+                    if (currentUser.username == "admin")
+                    {
+                        Admin_Main form = new Admin_Main(currentUser);
+                        Hide();
+                        form.ShowDialog();
+                        Close();
+                    }
+                    else
+                    {
+                        Main_Form form = new Main_Form(currentUser);
+                        Hide();
+                        form.ShowDialog();
+                        Close();
+                    }
                 }
                 //Không thì hiện message box cảnh báo
                 else

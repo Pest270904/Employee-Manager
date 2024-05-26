@@ -1,4 +1,7 @@
 ﻿using Employee_Manager.Main_forms;
+using Employee_Manager.Others;
+using FireSharp.Interfaces;
+using FireSharp.Response;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,15 +27,23 @@ namespace Employee_Manager.Child_Forms
         private readonly int serverPort = 2004;
         string name = string.Empty;
         private Userdata currentUser;
+
+        private IFirebaseClient clientFB;
+
         public Chat_ChildForm(Userdata user)
         {
             InitializeComponent();
+
+            clientFB = FirebaseSetup.InitializeFirebase();
+
             chat_box.ReadOnly = true;
 
             //this.ActiveControl = name_box;
             ConnectToServer();
             this.currentUser = user;
             name = currentUser.username;
+
+            LoadMessage();
         }
 
 
@@ -47,7 +58,7 @@ namespace Employee_Manager.Child_Forms
                 client = new TcpClient();
                 client.Connect(serverIp, serverPort);
                 stream = client.GetStream();
-                MessageBox.Show("Connected to the server!");
+                //MessageBox.Show("Connected to the server!");
 
                 Task.Run(ReceiveMessages);
             }
@@ -75,7 +86,7 @@ namespace Employee_Manager.Child_Forms
             }
             catch (Exception ex) when (ex is ObjectDisposedException || ex is InvalidOperationException)
             {
-                MessageBox.Show("Disconnected from the server.");
+                //MessageBox.Show("Disconnected from the server.");
             }
         }
 
@@ -85,22 +96,58 @@ namespace Employee_Manager.Child_Forms
             client?.Close();
         }
 
-        private void sendBtn_Click(object sender, EventArgs e)
+        private async void sendBtn_Click(object sender, EventArgs e)
         {
             if (client == null || !client.Connected)
             {
-                MessageBox.Show("Not connected to the server!");
+                //MessageBox.Show("Not connected to the server!");
                 return;
             }
 
-            string message = $"{name}: {message_box.Text}\r\n";
-            chat_box.AppendText(message);
+            if(!String.IsNullOrEmpty(message_box.Text))
+            {
+                string message = $"{name}: {message_box.Text}\r\n";
+                chat_box.AppendText(message);
 
-            byte[] data = Encoding.UTF8.GetBytes(message);
-            stream.Write(data, 0, data.Length);
+                byte[] data = Encoding.UTF8.GetBytes(message);
+                stream.Write(data, 0, data.Length);
 
-            message_box.Text = "";
-            this.ActiveControl = message_box;
+                FirebaseResponse respGet = clientFB.Get("messages/");
+                Messages result = respGet.ResultAs<Messages>();
+
+                var dataLayer = new MessageContent
+                {
+                    content = message_box.Text,
+                    sender = currentUser.username
+                };
+
+                SetResponse respSetMsg = await clientFB.SetTaskAsync("messages/message/m" + result.count.ToString(), dataLayer);
+                SetResponse respSetCount = clientFB.Set("messages/count", result.count + 1);
+
+                message_box.Text = "";
+                this.ActiveControl = message_box;
+            }
+        }
+
+        private void LoadMessage()
+        {
+            FirebaseResponse resp = clientFB.Get("messages/message/");
+            Dictionary<string, MessageContent> result;
+
+            if (resp.Body != "null")
+            {
+                result = resp.ResultAs<Dictionary<string, MessageContent>>();
+            }
+            else
+            {
+                result = new Dictionary<string, MessageContent>();
+            }
+
+            foreach (var msg in result)
+            {
+                string message = $"{msg.Value.sender}: {msg.Value.content}\r\n";
+                chat_box.AppendText(message);
+            }
         }
     }
 }
