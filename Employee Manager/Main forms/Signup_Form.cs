@@ -52,7 +52,7 @@ namespace Employee_Manager
                             password = passwordTB.Text,
                         };
 
-                        SetResponse resp = await client.SetTaskAsync("users/" + usernameTB.Text, dataLayer);
+                        SetResponse resp = await client.SetTaskAsync("users/" + usernameTB.Text,dataLayer);
                         Data result = resp.ResultAs<Data>();
                         MessageBox.Show("Signup completed!");
 

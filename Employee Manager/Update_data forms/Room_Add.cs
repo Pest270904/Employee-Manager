@@ -33,7 +33,7 @@ namespace Employee_Manager.Update_data_forms
 
         private async void add_Btn_Click(object sender, EventArgs e)
         {
-            if(String.IsNullOrEmpty(roomID_TB.Text) || String.IsNullOrEmpty(roomName_TB.Text))
+            if(String.IsNullOrEmpty(roomID_TB.Text) || String.IsNullOrEmpty(roomName_TB.Text) )
             {
                 MessageBox.Show("Please fill al the fields");
             } 
