@@ -130,10 +130,9 @@
     <Compile Include="Child forms\Chat_ChildForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main forms\Employees_Add.Designer.cs">
-      <DependentUpon>Employees_Add.cs</DependentUpon>
+    <Compile Include="Child forms\Chat_ChildForm.Designer.cs">
+      <DependentUpon>Chat_ChildForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Others\Employees.cs" />
     <Compile Include="Child forms\ListEmployee_ChildForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +170,12 @@
     </Compile>
     <Compile Include="Admin\Server.Designer.cs">
       <DependentUpon>Server.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Admin_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Admin_Main.Designer.cs">
+      <DependentUpon>Admin_Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Main forms\Signup_Confirm_Form.cs">
       <SubType>Form</SubType>
@@ -257,9 +262,6 @@
     <EmbeddedResource Include="Child forms\ListUser_ChildForm.resx">
       <DependentUpon>ListUser_ChildForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Update_data forms\Employees_Add.resx">
-      <DependentUpon>Employees_Add.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Admin\Server.resx">
       <DependentUpon>Server.cs</DependentUpon>
     </EmbeddedResource>
@@ -283,6 +285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Update_data forms\Employees_Update.resx">
       <DependentUpon>Employees_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Update_data forms\Employees_Add.resx">
+      <DependentUpon>Employees_Add.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Update_data forms\Room_Add.resx">
       <DependentUpon>Room_Add.cs</DependentUpon>

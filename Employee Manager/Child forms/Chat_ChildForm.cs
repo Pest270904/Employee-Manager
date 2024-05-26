@@ -51,6 +51,7 @@ namespace Employee_Manager.Child_Forms
         {
 
         }
+
         private void ConnectToServer()
         {
             try
@@ -67,6 +68,7 @@ namespace Employee_Manager.Child_Forms
                 MessageBox.Show("Failed to connect to the server: " + ex.Message);
             }
         }
+
         private async Task ReceiveMessages()
         {
             try
