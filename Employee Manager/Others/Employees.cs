@@ -11,5 +11,6 @@ namespace Employee_Manager.Child_Forms
         public DateTime birthday { get; set; }
         public string phoneNumber { get; set; }
         public double salary { get; set; }
+        public string roomID { get; set; }
     }
 }

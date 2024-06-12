@@ -31,7 +31,7 @@ namespace Employee_Manager.Update_data_forms
 
         private async void add_Btn_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(nameTxtBox.Text) || String.IsNullOrEmpty(emailTxtBox.Text) || String.IsNullOrEmpty(phoneTxtBox.Text))
+            if (String.IsNullOrEmpty(nameTxtBox.Text) || String.IsNullOrEmpty(emailTxtBox.Text) || String.IsNullOrEmpty(phoneTxtBox.Text) || String.IsNullOrEmpty(roomIDComboBox.Text))
             {
                 MessageBox.Show("Please fill all the fields");
             }

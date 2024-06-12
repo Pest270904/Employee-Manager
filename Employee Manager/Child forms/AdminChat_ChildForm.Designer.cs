@@ -28,36 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.sendBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.message_box = new Guna.UI2.WinForms.Guna2TextBox();
             this.sendBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.chatBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.chatBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.chatList = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.userList = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.chat_box = new Guna.UI2.WinForms.Guna2TextBox();
             this.SuspendLayout();
             // 
-            // sendBox
+            // message_box
             // 
-            this.sendBox.BorderColor = System.Drawing.Color.Black;
-            this.sendBox.BorderThickness = 2;
-            this.sendBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.sendBox.DefaultText = "";
-            this.sendBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.sendBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.sendBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.sendBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.sendBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.sendBox.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sendBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.sendBox.Location = new System.Drawing.Point(59, 405);
-            this.sendBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.sendBox.Name = "sendBox";
-            this.sendBox.PasswordChar = '\0';
-            this.sendBox.PlaceholderText = "...";
-            this.sendBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.sendBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.sendBox.SelectedText = "";
-            this.sendBox.Size = new System.Drawing.Size(696, 79);
-            this.sendBox.TabIndex = 5;
+            this.message_box.BorderColor = System.Drawing.Color.Black;
+            this.message_box.BorderThickness = 2;
+            this.message_box.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.message_box.DefaultText = "";
+            this.message_box.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.message_box.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.message_box.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.message_box.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.message_box.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.message_box.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.message_box.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.message_box.Location = new System.Drawing.Point(59, 405);
+            this.message_box.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.message_box.Name = "message_box";
+            this.message_box.PasswordChar = '\0';
+            this.message_box.PlaceholderText = "...";
+            this.message_box.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.message_box.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.message_box.SelectedText = "";
+            this.message_box.Size = new System.Drawing.Size(696, 79);
+            this.message_box.TabIndex = 5;
             // 
             // sendBtn
             // 
@@ -74,88 +73,73 @@
             this.sendBtn.Size = new System.Drawing.Size(118, 80);
             this.sendBtn.TabIndex = 4;
             this.sendBtn.Text = "SEND";
+            this.sendBtn.Click += new System.EventHandler(this.sendBtn_Click);
             // 
-            // chatBox
+            // userList
             // 
-            this.chatBox.BorderColor = System.Drawing.Color.Black;
-            this.chatBox.BorderThickness = 2;
-            this.chatBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.chatBox.DefaultText = "";
-            this.chatBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.chatBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.chatBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.chatBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.chatBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chatBox.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chatBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chatBox.Location = new System.Drawing.Point(59, 106);
-            this.chatBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.chatBox.Name = "chatBox";
-            this.chatBox.PasswordChar = '\0';
-            this.chatBox.PlaceholderText = "";
-            this.chatBox.SelectedText = "";
-            this.chatBox.Size = new System.Drawing.Size(837, 268);
-            this.chatBox.TabIndex = 3;
+            this.userList.AutoRoundedCorners = true;
+            this.userList.BackColor = System.Drawing.Color.Transparent;
+            this.userList.BorderColor = System.Drawing.Color.Black;
+            this.userList.BorderRadius = 17;
+            this.userList.BorderThickness = 2;
+            this.userList.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.userList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.userList.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.userList.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.userList.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.userList.ItemHeight = 30;
+            this.userList.Location = new System.Drawing.Point(59, 34);
+            this.userList.Name = "userList";
+            this.userList.Size = new System.Drawing.Size(638, 36);
+            this.userList.TabIndex = 7;
+            this.userList.SelectedIndexChanged += new System.EventHandler(this.userList_TextChanged);
+            this.userList.TextChanged += new System.EventHandler(this.userList_TextChanged);
             // 
-            // chatBtn
+            // chat_box
             // 
-            this.chatBtn.BorderRadius = 10;
-            this.chatBtn.BorderThickness = 2;
-            this.chatBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.chatBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.chatBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.chatBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.chatBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.chatBtn.Font = new System.Drawing.Font("Segoe UI Black", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chatBtn.ForeColor = System.Drawing.Color.White;
-            this.chatBtn.Location = new System.Drawing.Point(722, 16);
-            this.chatBtn.Name = "chatBtn";
-            this.chatBtn.Size = new System.Drawing.Size(173, 73);
-            this.chatBtn.TabIndex = 6;
-            this.chatBtn.Text = "CHAT";
-            // 
-            // chatList
-            // 
-            this.chatList.AutoRoundedCorners = true;
-            this.chatList.BackColor = System.Drawing.Color.Transparent;
-            this.chatList.BorderColor = System.Drawing.Color.Black;
-            this.chatList.BorderRadius = 17;
-            this.chatList.BorderThickness = 2;
-            this.chatList.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.chatList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.chatList.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chatList.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chatList.Font = new System.Drawing.Font("Segoe UI Black", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chatList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.chatList.ItemHeight = 30;
-            this.chatList.Location = new System.Drawing.Point(59, 35);
-            this.chatList.Name = "chatList";
-            this.chatList.Size = new System.Drawing.Size(638, 36);
-            this.chatList.TabIndex = 7;
+            this.chat_box.BorderColor = System.Drawing.Color.Black;
+            this.chat_box.BorderThickness = 2;
+            this.chat_box.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.chat_box.DefaultText = "";
+            this.chat_box.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.chat_box.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.chat_box.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.chat_box.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.chat_box.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chat_box.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold);
+            this.chat_box.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chat_box.Location = new System.Drawing.Point(59, 92);
+            this.chat_box.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.chat_box.Multiline = true;
+            this.chat_box.Name = "chat_box";
+            this.chat_box.PasswordChar = '\0';
+            this.chat_box.PlaceholderText = "";
+            this.chat_box.ReadOnly = true;
+            this.chat_box.SelectedText = "";
+            this.chat_box.Size = new System.Drawing.Size(837, 285);
+            this.chat_box.TabIndex = 8;
             // 
             // AdminChat_ChildForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(955, 529);
-            this.Controls.Add(this.chatList);
-            this.Controls.Add(this.chatBtn);
-            this.Controls.Add(this.sendBox);
+            this.Controls.Add(this.chat_box);
+            this.Controls.Add(this.userList);
+            this.Controls.Add(this.message_box);
             this.Controls.Add(this.sendBtn);
-            this.Controls.Add(this.chatBox);
             this.Name = "AdminChat_ChildForm";
             this.Text = "AdminChat_ChildForm";
-            this.Load += new System.EventHandler(this.AdminChat_ChildForm_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2TextBox sendBox;
+        private Guna.UI2.WinForms.Guna2TextBox message_box;
         private Guna.UI2.WinForms.Guna2Button sendBtn;
-        private Guna.UI2.WinForms.Guna2TextBox chatBox;
-        private Guna.UI2.WinForms.Guna2Button chatBtn;
-        private Guna.UI2.WinForms.Guna2ComboBox chatList;
+        private Guna.UI2.WinForms.Guna2ComboBox userList;
+        private Guna.UI2.WinForms.Guna2TextBox chat_box;
     }
 }

@@ -47,7 +47,7 @@ namespace Employee_Manager.Admin
                 openServer = true;
             }
 
-            OpenChildForm(new Child_Forms.Chat_ChildForm(currentUser), sender);
+            OpenChildForm(new Child_Forms.AdminChat_ChildForm(currentUser), sender);
         }
 
         private void logoutBtn_Click(object sender, EventArgs e)

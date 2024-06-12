@@ -79,9 +79,23 @@ namespace Employee_Manager.Child_Forms
                     int bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length);
                     string receivedMessage = Encoding.UTF8.GetString(buffer, 0, bytesRead);
 
-                    Invoke((Action)(() =>
+                    string[] splitStr = receivedMessage.Split(':');
+
+                    if (splitStr[0] != currentUser.username)
+                        continue;
+
+                    string msg = "";
+                    for (int i = 1; i < splitStr.Length; i++)
                     {
-                        chat_box.AppendText(receivedMessage);
+                        msg += splitStr[i];
+                    }
+
+                    if (currentUser.username != "admin")
+                        if (splitStr[0] != currentUser.username && splitStr[1] != "admin")
+                            continue;
+
+                    Invoke((Action)( () => {
+                        chat_box.AppendText(msg);
                         chat_box.ScrollToCaret();
                     }));
                 }
@@ -108,10 +122,11 @@ namespace Employee_Manager.Child_Forms
 
             if(!String.IsNullOrEmpty(message_box.Text))
             {
-                string message = $"{name}: {message_box.Text}\r\n";
+                string message = $"{currentUser.username}: {message_box.Text}\r\n";
+                string send_msg = $"1:{name}: {message_box.Text}\r\n";
                 chat_box.AppendText(message);
 
-                byte[] data = Encoding.UTF8.GetBytes(message);
+                byte[] data = Encoding.UTF8.GetBytes(send_msg);
                 stream.Write(data, 0, data.Length);
 
                 FirebaseResponse respGet = clientFB.Get("messages/");
@@ -120,13 +135,14 @@ namespace Employee_Manager.Child_Forms
                 var dataLayer = new MessageContent
                 {
                     content = message_box.Text,
-                    sender = currentUser.username
+                    sender = currentUser.username,
+                    receiver = "admin"
                 };
 
                 SetResponse respSetMsg = await clientFB.SetTaskAsync("messages/message/m" + result.count.ToString(), dataLayer);
                 SetResponse respSetCount = clientFB.Set("messages/count", result.count + 1);
 
-                message_box.Text = "";
+                message_box.Clear();
                 this.ActiveControl = message_box;
             }
         }
@@ -147,9 +163,17 @@ namespace Employee_Manager.Child_Forms
 
             foreach (var msg in result)
             {
+                if (msg.Value.sender != "admin" && msg.Value.sender != currentUser.username)
+                    continue;
+
+                if (msg.Value.receiver != currentUser.username)
+                    continue;
+
                 string message = $"{msg.Value.sender}: {msg.Value.content}\r\n";
                 chat_box.AppendText(message);
             }
+
+            chat_box.ScrollToCaret();
         }
     }
 }

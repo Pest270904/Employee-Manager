@@ -10,5 +10,6 @@ namespace Employee_Manager.Others
     {
         public string content { get; set; }
         public string sender { get; set; }
+        public string receiver { get; set; }
     }
 }

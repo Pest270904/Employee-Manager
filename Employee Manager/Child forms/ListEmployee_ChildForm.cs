@@ -57,16 +57,25 @@ namespace Employee_Manager.Child_Forms
         // ----------------------------- Individual functions -----------------------------
         private void LoadData()
         {
-            //MessageBox.Show("Reaached");
-
             // Truy xuất room ID
             var result = RetrieveRoomID();
 
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("ID");
+            dataTable.Columns.Add("Name");
+            dataTable.Columns.Add("Gender");
+            dataTable.Columns.Add("Email");
+            dataTable.Columns.Add("Birth Day");
+            dataTable.Columns.Add("Phone Number");
+            dataTable.Columns.Add("Salary");
+            dataTable.Columns.Add("Room ID");
+
             foreach (var roomEntry in result)
             {
-                //Truy xuất empoyees từ firebase
+                //Truy xuất employees từ firebase
                 FirebaseResponse respGet2 = client.Get("users/" + currentUser.username + "/rooms/r" + roomEntry.Value.roomID + "/employees/");
                 Dictionary<string, Employees> result2;
+
 
                 if (respGet2.Body != "null")
                 {
@@ -77,15 +86,6 @@ namespace Employee_Manager.Child_Forms
                     result2 = new Dictionary<string, Employees>();
                 }
 
-                DataTable dataTable = new DataTable();
-                dataTable.Columns.Add("ID");
-                dataTable.Columns.Add("Name");
-                dataTable.Columns.Add("Gender");
-                dataTable.Columns.Add("Email");
-                dataTable.Columns.Add("Birth Day");
-                dataTable.Columns.Add("Phone Number");
-                dataTable.Columns.Add("Salery");
-
                 foreach (var userInfo in result2)
                 {
                     DataRow row = dataTable.NewRow();
@@ -95,13 +95,13 @@ namespace Employee_Manager.Child_Forms
                     row["Email"] = userInfo.Value.email;
                     row["Birth Day"] = userInfo.Value.birthday;
                     row["Phone Number"] = userInfo.Value.phoneNumber;
-                    row["Salery"] = userInfo.Value.salary;
+                    row["Salary"] = userInfo.Value.salary;
+                    row["Room ID"] = userInfo.Value.roomID;
                     dataTable.Rows.Add(row);
                 }
-
-                employeeGridView.DataSource = dataTable;
             }
 
+            employeeGridView.DataSource = dataTable;
         }
 
         private void ListEmployee_ChildForm_Load(object sender, EventArgs e)
@@ -172,11 +172,17 @@ namespace Employee_Manager.Child_Forms
                     DataGridViewRow selectedRow = employeeGridView.SelectedRows[0];
 
                     //Đoạn này lấy dữ liệu từ gridview
-                    string roomId = selectedRow.Cells["roomID"].Value.ToString();
-                    string roomName = selectedRow.Cells["roomName"].Value.ToString();
-                    int employeeCount = Convert.ToInt32(selectedRow.Cells["count"].Value);
+                    int id = Convert.ToInt32(selectedRow.Cells["ID"].Value);
+                    string roomId = selectedRow.Cells["Room ID"].Value.ToString();
+                    string name = selectedRow.Cells["Name"].Value.ToString();
+                    string gender = selectedRow.Cells["Gender"].Value.ToString();
+                    string email = selectedRow.Cells["Email"].Value.ToString();
+                    DateTime birthday = Convert.ToDateTime(selectedRow.Cells["Birth Day"].Value);
+                    string phoneNumber = selectedRow.Cells["Phone Number"].Value.ToString();
+                    double salery = Convert.ToDouble(selectedRow.Cells["Salary"].Value);
 
-                    Room_Update frm = new Room_Update(roomId, roomName, employeeCount, currentUser);
+
+                    Employees_Update frm = new Employees_Update(id, roomId, name, email, phoneNumber, gender, birthday, salery, currentUser);
                     frm.ShowDialog();
                     LoadData();
                 }
