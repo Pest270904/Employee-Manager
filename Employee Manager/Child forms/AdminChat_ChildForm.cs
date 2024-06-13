@@ -34,7 +34,7 @@ namespace Employee_Manager.Child_Forms
             InitializeComponent();
             this.currentUser = user;
 
-            chat_box.ReadOnly = true;
+/*            chat_box.ReadOnly = true;*/
 
             clientFB = FirebaseSetup.InitializeFirebase();
 
@@ -46,7 +46,7 @@ namespace Employee_Manager.Child_Forms
 
         private void userList_TextChanged(object sender, EventArgs e)
         {
-            chat_box.Clear();
+/*            chat_box.Clear();*/
             message_box.Clear();
             LoadMessage(userList.Text);
             
@@ -82,18 +82,49 @@ namespace Employee_Manager.Child_Forms
                 result = new Dictionary<string, MessageContent>();
             }
 
+            chat_box.Controls.Clear(); // Clear existing messages
+
             foreach (var msg in result)
             {
+                Label messageLabel = new Label();
+                messageLabel.AutoSize = true;
+                messageLabel.MaximumSize = new Size(chat_box.Width - 80, 0); // Ensure it wraps text
+                messageLabel.Text = msg.Value.content;
+                messageLabel.BackColor = (msg.Value.sender == "admin") ? Color.LightBlue : Color.LightGray;
+                messageLabel.Padding = new Padding(10);
+                messageLabel.Margin = new Padding(3);
+
+                // Use a Panel to help with right-alignment within the FlowLayoutPanel
+                Panel messagePanel = new Panel();
+                messagePanel.AutoSize = true;
+                messagePanel.MaximumSize = new Size(chat_box.Width - 40, 0);
+                messagePanel.BackColor = Color.Transparent; // Ensures the panel itself is invisible
+                messagePanel.Controls.Add(messageLabel);
+
+                if (msg.Value.sender == "admin")
+                {
+                    messageLabel.TextAlign = ContentAlignment.MiddleRight;
+                    messagePanel.Controls.Add(messageLabel);
+                    messagePanel.Margin = new Padding(chat_box.Width - messageLabel.PreferredWidth - 80, 3, 10, 3);
+                }
+                else
+                {
+                    messageLabel.TextAlign = ContentAlignment.MiddleLeft;
+                    messagePanel.Controls.Add(messageLabel);
+                    messagePanel.Margin = new Padding(10, 3, chat_box.Width - messageLabel.PreferredWidth - 80, 3);
+                }
+
                 string sender = msg.Value.sender;
                 string receiver_msg = msg.Value.receiver;
 
                 if ((sender == "admin" && receiver_msg == receiver) || sender == receiver)
                 {
-                    string message = $"{msg.Value.sender}: {msg.Value.content}\r\n";
-                    chat_box.AppendText(message);
+                    chat_box.Controls.Add(messagePanel);
+                    messageLabel.BringToFront();
+                    chat_box.ScrollControlIntoView(messageLabel);
                 }
             }
-            chat_box.ScrollToCaret();
+            chat_box.PerformLayout();
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -118,16 +149,37 @@ namespace Employee_Manager.Child_Forms
                         continue;
 
                     string msg = "";
-                    for (int i = 1; i < splitStr.Length; i++) 
+                    for (int i = 2; i < splitStr.Length; i++) 
                     {
                         msg += splitStr[i];
-                        if (i == 1)
-                            msg += ": ";
+                        if (i > 2)
+                            msg += ':';
                     }
 
                     Invoke((Action)(() => {
-                        chat_box.AppendText(msg);
-                        chat_box.ScrollToCaret();
+                        Label messageLabel = new Label();
+                        messageLabel.AutoSize = true;
+                        messageLabel.MaximumSize = new Size(chat_box.Width - 80, 0); // Ensure it wraps text
+                        messageLabel.Text = msg;
+                        messageLabel.BackColor = Color.LightGray;
+                        messageLabel.Padding = new Padding(10);
+                        messageLabel.Margin = new Padding(3);
+
+                        // Use a Panel to help with right-alignment within the FlowLayoutPanel
+                        Panel messagePanel = new Panel();
+                        messagePanel.AutoSize = true;
+                        messagePanel.MaximumSize = new Size(chat_box.Width - 40, 0);
+                        messagePanel.BackColor = Color.Transparent; // Ensures the panel itself is invisible
+                        messagePanel.Controls.Add(messageLabel);
+
+                        messageLabel.TextAlign = ContentAlignment.MiddleLeft;
+                        messagePanel.Controls.Add(messageLabel);
+                        messagePanel.Margin = new Padding(10, 3, chat_box.Width - messageLabel.PreferredWidth - 80, 3);
+
+                        chat_box.Controls.Add(messagePanel);
+                        messageLabel.BringToFront();
+                        chat_box.ScrollControlIntoView(messageLabel);
+                        chat_box.PerformLayout();
                     }));
                 }
             }
@@ -164,9 +216,31 @@ namespace Employee_Manager.Child_Forms
 
             if (!String.IsNullOrEmpty(message_box.Text))
             {
-                string message = $"{currentUser.username}: {message_box.Text}\r\n";
+                Label messageLabel = new Label();
+                messageLabel.AutoSize = true;
+                messageLabel.MaximumSize = new Size(chat_box.Width - 80, 0); // Ensure it wraps text
+                messageLabel.Text = message_box.Text;
+                messageLabel.BackColor = Color.LightBlue;
+                messageLabel.Padding = new Padding(10);
+                messageLabel.Margin = new Padding(3);
+
+                // Use a Panel to help with right-alignment within the FlowLayoutPanel
+                Panel messagePanel = new Panel();
+                messagePanel.AutoSize = true;
+                messagePanel.MaximumSize = new Size(chat_box.Width - 40, 0);
+                messagePanel.BackColor = Color.Transparent; // Ensures the panel itself is invisible
+                messagePanel.Controls.Add(messageLabel);
+
+                messageLabel.TextAlign = ContentAlignment.MiddleRight;
+                messagePanel.Controls.Add(messageLabel);
+                messagePanel.Margin = new Padding(chat_box.Width - messageLabel.PreferredWidth - 80, 3, 10, 3);
+
+                chat_box.Controls.Add(messagePanel);
+                messageLabel.BringToFront();
+                chat_box.ScrollControlIntoView(messageLabel);
+                chat_box.PerformLayout();
+
                 string send_msg = $"{userList.Text}:{currentUser.username}: {message_box.Text}\r\n";
-                chat_box.AppendText(message);
 
                 byte[] data = Encoding.UTF8.GetBytes(send_msg);
                 stream.Write(data, 0, data.Length);
@@ -186,6 +260,14 @@ namespace Employee_Manager.Child_Forms
 
                 message_box.Clear();
                 this.ActiveControl = message_box;
+            }
+        }
+
+        private void message_box_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                sendBtn_Click(sender, e);
             }
         }
     }

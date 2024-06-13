@@ -42,6 +42,8 @@
             this.genderComboBx = new System.Windows.Forms.ComboBox();
             this.birthdayPicker = new System.Windows.Forms.DateTimePicker();
             this.roomIDComboBox = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.idTxtBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.SuspendLayout();
             // 
             // back_Btn
@@ -55,7 +57,7 @@
             this.back_Btn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.back_Btn.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.back_Btn.ForeColor = System.Drawing.Color.White;
-            this.back_Btn.Location = new System.Drawing.Point(431, 176);
+            this.back_Btn.Location = new System.Drawing.Point(486, 176);
             this.back_Btn.Name = "back_Btn";
             this.back_Btn.Size = new System.Drawing.Size(119, 39);
             this.back_Btn.TabIndex = 19;
@@ -73,7 +75,7 @@
             this.add_Btn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(77)))), ((int)(((byte)(17)))));
             this.add_Btn.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.add_Btn.ForeColor = System.Drawing.Color.White;
-            this.add_Btn.Location = new System.Drawing.Point(588, 176);
+            this.add_Btn.Location = new System.Drawing.Point(643, 176);
             this.add_Btn.Name = "add_Btn";
             this.add_Btn.Size = new System.Drawing.Size(119, 39);
             this.add_Btn.TabIndex = 20;
@@ -83,7 +85,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(12, 76);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 16);
             this.label1.TabIndex = 21;
@@ -92,7 +94,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 62);
+            this.label2.Location = new System.Drawing.Point(12, 128);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 16);
             this.label2.TabIndex = 22;
@@ -101,7 +103,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 176);
+            this.label3.Location = new System.Drawing.Point(15, 227);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 16);
             this.label3.TabIndex = 23;
@@ -110,7 +112,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 231);
+            this.label4.Location = new System.Drawing.Point(12, 269);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 16);
             this.label4.TabIndex = 24;
@@ -119,7 +121,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 117);
+            this.label5.Location = new System.Drawing.Point(12, 176);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 16);
             this.label5.TabIndex = 25;
@@ -145,7 +147,7 @@
             this.nameTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.nameTxtBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.nameTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.nameTxtBox.Location = new System.Drawing.Point(143, 9);
+            this.nameTxtBox.Location = new System.Drawing.Point(143, 76);
             this.nameTxtBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.nameTxtBox.Name = "nameTxtBox";
             this.nameTxtBox.PasswordChar = '\0';
@@ -165,7 +167,7 @@
             this.emailTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.emailTxtBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.emailTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.emailTxtBox.Location = new System.Drawing.Point(143, 62);
+            this.emailTxtBox.Location = new System.Drawing.Point(143, 128);
             this.emailTxtBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.emailTxtBox.Name = "emailTxtBox";
             this.emailTxtBox.PasswordChar = '\0';
@@ -185,7 +187,7 @@
             this.phoneTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.phoneTxtBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.phoneTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.phoneTxtBox.Location = new System.Drawing.Point(143, 117);
+            this.phoneTxtBox.Location = new System.Drawing.Point(143, 176);
             this.phoneTxtBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.phoneTxtBox.Name = "phoneTxtBox";
             this.phoneTxtBox.PasswordChar = '\0';
@@ -201,14 +203,14 @@
             "Male",
             "Female",
             "Other"});
-            this.genderComboBx.Location = new System.Drawing.Point(143, 176);
+            this.genderComboBx.Location = new System.Drawing.Point(143, 227);
             this.genderComboBx.Name = "genderComboBx";
             this.genderComboBx.Size = new System.Drawing.Size(142, 24);
             this.genderComboBx.TabIndex = 33;
             // 
             // birthdayPicker
             // 
-            this.birthdayPicker.Location = new System.Drawing.Point(143, 231);
+            this.birthdayPicker.Location = new System.Drawing.Point(143, 269);
             this.birthdayPicker.Name = "birthdayPicker";
             this.birthdayPicker.Size = new System.Drawing.Size(200, 22);
             this.birthdayPicker.TabIndex = 34;
@@ -221,11 +223,42 @@
             this.roomIDComboBox.Size = new System.Drawing.Size(133, 24);
             this.roomIDComboBox.TabIndex = 35;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 28);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(23, 16);
+            this.label7.TabIndex = 36;
+            this.label7.Text = "ID:";
+            // 
+            // idTxtBox
+            // 
+            this.idTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.idTxtBox.DefaultText = "";
+            this.idTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.idTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.idTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.idTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.idTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.idTxtBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.idTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.idTxtBox.Location = new System.Drawing.Point(143, 28);
+            this.idTxtBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.idTxtBox.Name = "idTxtBox";
+            this.idTxtBox.PasswordChar = '\0';
+            this.idTxtBox.PlaceholderText = "";
+            this.idTxtBox.SelectedText = "";
+            this.idTxtBox.Size = new System.Drawing.Size(142, 27);
+            this.idTxtBox.TabIndex = 37;
+            // 
             // Employees_Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(774, 303);
+            this.Controls.Add(this.idTxtBox);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.roomIDComboBox);
             this.Controls.Add(this.birthdayPicker);
             this.Controls.Add(this.genderComboBx);
@@ -264,5 +297,7 @@
         private System.Windows.Forms.ComboBox genderComboBx;
         private System.Windows.Forms.DateTimePicker birthdayPicker;
         private System.Windows.Forms.ComboBox roomIDComboBox;
+        private System.Windows.Forms.Label label7;
+        private Guna.UI2.WinForms.Guna2TextBox idTxtBox;
     }
 }

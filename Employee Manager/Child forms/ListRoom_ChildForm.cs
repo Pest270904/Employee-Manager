@@ -137,16 +137,37 @@ namespace Employee_Manager.Child_Forms
             }
 
             DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("roomID");
-            dataTable.Columns.Add("roomName");
-            dataTable.Columns.Add("count");
+            dataTable.Columns.Add("RoomID");
+            dataTable.Columns.Add("RoomName");
+            dataTable.Columns.Add("Number of employees");
 
             foreach (var roomEntry in result)
             {
                 DataRow row = dataTable.NewRow();
-                row["roomID"] = roomEntry.Value.roomID;
-                row["roomName"] = roomEntry.Value.roomName;
-                row["count"] = roomEntry.Value.countEmployee;
+                row["RoomID"] = roomEntry.Value.roomID;
+                row["RoomName"] = roomEntry.Value.roomName;
+                row["Number of employees"] = roomEntry.Value.countEmployee;
+
+                int countEmployee = 0;
+                FirebaseResponse respEmp = client.Get("users/" + currentUser.username + "/rooms/r" + roomEntry.Value.roomID +"/employees/");
+                Dictionary<string, Employees> resultEmp;
+
+                if (respEmp.Body != "null")
+                {
+                    resultEmp = respEmp.ResultAs<Dictionary<string, Employees>>();
+                }
+                else
+                {
+                    resultEmp = new Dictionary<string, Employees>();
+                }
+
+                foreach (var room in resultEmp)
+                {
+                    countEmployee++;
+                }
+
+                row["Number of employees"] = countEmployee;
+
                 dataTable.Rows.Add(row);
             }     
 

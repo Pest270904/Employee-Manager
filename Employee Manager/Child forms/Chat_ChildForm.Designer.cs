@@ -28,34 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.chat_box = new Guna.UI2.WinForms.Guna2TextBox();
             this.sendBtn = new Guna.UI2.WinForms.Guna2Button();
             this.message_box = new Guna.UI2.WinForms.Guna2TextBox();
+            this.chat_box = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
-            // 
-            // chat_box
-            // 
-            this.chat_box.BorderColor = System.Drawing.Color.Black;
-            this.chat_box.BorderThickness = 2;
-            this.chat_box.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.chat_box.DefaultText = "";
-            this.chat_box.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.chat_box.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.chat_box.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.chat_box.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.chat_box.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chat_box.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold);
-            this.chat_box.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chat_box.Location = new System.Drawing.Point(57, 43);
-            this.chat_box.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.chat_box.Multiline = true;
-            this.chat_box.Name = "chat_box";
-            this.chat_box.PasswordChar = '\0';
-            this.chat_box.PlaceholderText = "";
-            this.chat_box.ReadOnly = true;
-            this.chat_box.SelectedText = "";
-            this.chat_box.Size = new System.Drawing.Size(837, 331);
-            this.chat_box.TabIndex = 0;
             // 
             // sendBtn
             // 
@@ -97,6 +73,17 @@
             this.message_box.SelectedText = "";
             this.message_box.Size = new System.Drawing.Size(696, 79);
             this.message_box.TabIndex = 2;
+            this.message_box.KeyDown += new System.Windows.Forms.KeyEventHandler(this.message_box_KeyDown);
+            // 
+            // chat_box
+            // 
+            this.chat_box.AutoScroll = true;
+            this.chat_box.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.chat_box.Location = new System.Drawing.Point(57, 25);
+            this.chat_box.Name = "chat_box";
+            this.chat_box.Size = new System.Drawing.Size(837, 352);
+            this.chat_box.TabIndex = 9;
+            this.chat_box.WrapContents = false;
             // 
             // Chat_ChildForm
             // 
@@ -104,9 +91,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 529);
+            this.Controls.Add(this.chat_box);
             this.Controls.Add(this.message_box);
             this.Controls.Add(this.sendBtn);
-            this.Controls.Add(this.chat_box);
             this.Name = "Chat_ChildForm";
             this.Text = "Chat_ChildForm";
             this.Load += new System.EventHandler(this.Chat_ChildForm_Load);
@@ -115,9 +102,8 @@
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2TextBox chat_box;
         private Guna.UI2.WinForms.Guna2Button sendBtn;
         private Guna.UI2.WinForms.Guna2TextBox message_box;
+        private System.Windows.Forms.FlowLayoutPanel chat_box;
     }
 }

@@ -16,7 +16,6 @@ namespace Employee_Manager.Update_data_forms
 {
     public partial class Employees_Add : Form
     {
-
         private IFirebaseClient client;
         private Userdata currentUser;
         public Employees_Add(Userdata user)
@@ -28,10 +27,9 @@ namespace Employee_Manager.Update_data_forms
             this.currentUser = user;
         }
 
-
         private async void add_Btn_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(nameTxtBox.Text) || String.IsNullOrEmpty(emailTxtBox.Text) || String.IsNullOrEmpty(phoneTxtBox.Text) || String.IsNullOrEmpty(roomIDComboBox.Text))
+            if (String.IsNullOrEmpty(nameTxtBox.Text) || String.IsNullOrEmpty(emailTxtBox.Text) || String.IsNullOrEmpty(phoneTxtBox.Text))
             {
                 MessageBox.Show("Please fill all the fields");
             }
@@ -69,16 +67,18 @@ namespace Employee_Manager.Update_data_forms
                         {
                             var dataLayer = new Employees
                             {
+                                id = Convert.ToInt32(idTxtBox.Text),
                                 email = emailTxtBox.Text,
                                 name = nameTxtBox.Text,
-                                birthday = birthdayPicker.Value,  
-                                phoneNumber = phoneTxtBox.Text,  
+                                birthday = birthdayPicker.Value,
+                                phoneNumber = phoneTxtBox.Text,
                                 gender = genderComboBx.SelectedItem.ToString(),
-                                salary = 0 //Default
+                                salary = 0,
+                                roomID = roomData
                             };
 
                             // Add new employee
-                            SetResponse resp = await client.SetTaskAsync("users/" + currentUser.username + "/rooms/r" + roomData + "/employees/e", dataLayer);
+                            SetResponse resp = await client.SetTaskAsync("users/" + currentUser.username + "/rooms/r" + roomData + "/employees/employee" + dataLayer.id, dataLayer);
                             MessageBox.Show("New employee added");
 
                             this.Close();
@@ -101,7 +101,6 @@ namespace Employee_Manager.Update_data_forms
                 }
             }
         }
-
 
         private void back_Btn_Click(object sender, EventArgs e)
         {
@@ -127,9 +126,6 @@ namespace Employee_Manager.Update_data_forms
             {
                 roomIDComboBox.Items.Add(roomEntry.Value.roomID);
             }
-
         }
-
-
     }
 }
