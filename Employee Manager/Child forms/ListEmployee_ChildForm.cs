@@ -124,41 +124,38 @@ namespace Employee_Manager.Child_Forms
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
-            var rooms = RetrieveRoomID();
-
-            foreach (var roomId in rooms)
+            if (employeeGridView.SelectedRows.Count > 0)
             {
-                try
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this record? Deleting an employee will delete all information of that employee",
+                    "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
                 {
-                    if (employeeGridView.SelectedRows.Count > 0)
+                    try
                     {
-                        DialogResult result = MessageBox.Show("Are you sure you want to delete this record? Delete an employee will delete all information of that employee",
-                            "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        // Retrieve data from the selected row
+                        DataGridViewRow selectedRow = employeeGridView.SelectedRows[0];
+                        string roomId = selectedRow.Cells["Room ID"].Value.ToString();
+                        string employeeID = selectedRow.Cells["ID"].Value.ToString();
 
-                        if (result == DialogResult.Yes)
-                        {
-                            // Retrieve data from the selected row
-                            DataGridViewRow selectedRow = employeeGridView.SelectedRows[0];
-                            string employeeName = selectedRow.Cells["Name"].Value.ToString();
+                        // Execute deleting
+                        FirebaseResponse responseDel = client.Delete("users/" + currentUser.username + "/rooms/r" + roomId + "/employees/employee" + employeeID);
 
-                            // Execute deleting
-                            FirebaseResponse responseDel = client.Delete("users/" + currentUser.username + "/rooms/r" + roomId + "/employees/" + employeeName);
+                        // Show a message or perform any other action after deletion
+                        MessageBox.Show("Record deleted successfully.");
 
-                            // Show a message or perform any other action after deletion
-                            MessageBox.Show("Record deleted successfully.");
-                        }
-
+                        // Refresh the data
                         LoadData();
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("Please select a row to update data");
+                        MessageBox.Show(ex.Message);
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to delete.");
             }
         }
 
