@@ -46,7 +46,7 @@ namespace Employee_Manager.Child_Forms
                     DataGridViewRow selectedRow = RoomGridView.SelectedRows[0];
                     string roomId = selectedRow.Cells["roomID"].Value.ToString();
                     string roomName = selectedRow.Cells["roomName"].Value.ToString();
-                    int employeeCount = Convert.ToInt32(selectedRow.Cells["count"].Value);
+                    int employeeCount = Convert.ToInt32(selectedRow.Cells["employee count"].Value);
 
                     Room_Update frm = new Room_Update(roomId, roomName, employeeCount, currentUser);
                     frm.ShowDialog();
@@ -137,16 +137,16 @@ namespace Employee_Manager.Child_Forms
             }
 
             DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("RoomID");
-            dataTable.Columns.Add("RoomName");
-            dataTable.Columns.Add("Number of employees");
+            dataTable.Columns.Add("roomID");
+            dataTable.Columns.Add("roomName");
+            dataTable.Columns.Add("employee count");
 
             foreach (var roomEntry in result)
             {
                 DataRow row = dataTable.NewRow();
-                row["RoomID"] = roomEntry.Value.roomID;
-                row["RoomName"] = roomEntry.Value.roomName;
-                row["Number of employees"] = roomEntry.Value.countEmployee;
+                row["roomID"] = roomEntry.Value.roomID;
+                row["roomName"] = roomEntry.Value.roomName;
+                row["employee count"] = roomEntry.Value.countEmployee;
 
                 int countEmployee = 0;
                 FirebaseResponse respEmp = client.Get("users/" + currentUser.username + "/rooms/r" + roomEntry.Value.roomID +"/employees/");
@@ -166,7 +166,7 @@ namespace Employee_Manager.Child_Forms
                     countEmployee++;
                 }
 
-                row["Number of employees"] = countEmployee;
+                row["employee count"] = countEmployee;
 
                 dataTable.Rows.Add(row);
             }     
