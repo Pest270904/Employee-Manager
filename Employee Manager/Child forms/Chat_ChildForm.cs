@@ -23,8 +23,8 @@ namespace Employee_Manager.Child_Forms
         private TcpClient client;
         private NetworkStream stream;
 
-        private readonly string serverIp = "0.tcp.ap.ngrok.io";
-        private readonly int serverPort = 13680;
+        private readonly string serverIp = "127.0.0.1";
+        private readonly int serverPort = 2004;
         string name = string.Empty;
         private Userdata currentUser;
 
