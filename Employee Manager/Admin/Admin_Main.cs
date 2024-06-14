@@ -40,6 +40,7 @@ namespace Employee_Manager.Admin
             {
                 Server form = new Server();
                 form.Show();
+                //form.Hide();
                 EventArgs eventArgs = EventArgs.Empty;
                 object Send = new object();
                 form.listen_btn_Click_1(Send, eventArgs);

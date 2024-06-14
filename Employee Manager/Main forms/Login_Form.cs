@@ -28,61 +28,70 @@ namespace Employee_Manager
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
-            //Check xem có điền username password
-            if (string.IsNullOrEmpty(usernameTB.Text) || string.IsNullOrEmpty(passwordTB.Text))
+            try
             {
-                MessageBox.Show("Please fill all fields!!");
-            }
-            else
-            {
-                //Biến để check xem người dùng có tồn tại
-                bool found = false;
-
-                //Truy xuất database
-                FirebaseResponse resp = client.Get("users/");
-                Dictionary<string, Data> result = resp.ResultAs<Dictionary<string, Data>>();
-
-                //Truy xuất thông tin
-                foreach (var get in result)
+                //Check xem có điền username password
+                if (string.IsNullOrEmpty(usernameTB.Text) || string.IsNullOrEmpty(passwordTB.Text))
                 {
-                    string usernameRes = get.Value.username;
-                    string passwordRes = get.Value.password;
-
-                    //Check nếu username và pass tồn tại
-                    if (usernameTB.Text == usernameRes && passwordTB.Text == passwordRes)
-                    {
-                        currentUser.username = usernameRes;
-                        currentUser.email = get.Value.email;
-                        currentUser.name = get.Value.name;
-                        found = true;
-                        break; 
-                    }
+                    MessageBox.Show("Please fill all fields!!");
                 }
-
-                //Nếu tồn tại thì đưa về home
-                if (found)
-                {
-                    if (currentUser.username == "admin")
-                    {
-                        Admin_Main form = new Admin_Main(currentUser);
-                        Hide();
-                        form.ShowDialog();
-                        Close();
-                    }
-                    else
-                    {
-                        Main_Form form = new Main_Form(currentUser);
-                        Hide();
-                        form.ShowDialog();
-                        Close();
-                    }
-                }
-                //Không thì hiện message box cảnh báo
                 else
                 {
-                    MessageBox.Show("Username or Password might be wrong!!");
+                    //Biến để check xem người dùng có tồn tại
+                    bool found = false;
+
+                    //Truy xuất database
+                    FirebaseResponse resp = client.Get("users/");
+                    Dictionary<string, Data> result = resp.ResultAs<Dictionary<string, Data>>();
+
+                    //Truy xuất thông tin
+                    foreach (var get in result)
+                    {
+                        string usernameRes = get.Value.username;
+                        string passwordRes = get.Value.password;
+
+                        //Check nếu username và pass tồn tại
+                        if (usernameTB.Text == usernameRes && passwordTB.Text == passwordRes)
+                        {
+                            currentUser.username = usernameRes;
+                            currentUser.email = get.Value.email;
+                            currentUser.name = get.Value.name;
+                            found = true;
+                            break;
+                        }
+                    }
+
+                    //Nếu tồn tại thì đưa về home
+                    if (found)
+                    {
+                        if (currentUser.username == "admin")
+                        {
+                            Admin_Main form = new Admin_Main(currentUser);
+                            Hide();
+                            form.ShowDialog();
+                            Close();
+                        }
+                        else
+                        {
+                            Main_Form form = new Main_Form(currentUser);
+                            Hide();
+                            form.ShowDialog();
+                            Close();
+                        }
+                    }
+                    //Không thì hiện message box cảnh báo
+                    else
+                    {
+                        MessageBox.Show("Username or Password might be wrong!!");
+                    }
                 }
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Some thing went wrong");
+
+            }
+            
         }
 
 
