@@ -28,9 +28,6 @@ namespace Employee_Manager.Child_Forms
         {
             InitializeComponent();
             this.currentUser = user;
-            username_label.Text = currentUser.username;
-            nameTB.Text = currentUser.name;
-            emailTB.Text = currentUser.email;
         }
 
         private void editBtn_Click(object sender, EventArgs e)
@@ -71,7 +68,15 @@ namespace Employee_Manager.Child_Forms
 
         private void Profile_ChildForm_Load(object sender, EventArgs e)
         {
+            username_label.Text = currentUser.username;
+
             client = FirebaseSetup.InitializeFirebase();
+
+            FirebaseResponse resp = client.Get("users/" + currentUser.username + "/");
+            Userdata res = resp.ResultAs<Userdata>();
+
+            nameTB.Text = res.name;
+            emailTB.Text = res.email;
         }
 
         private void emailTB_TextChanged(object sender, EventArgs e)
